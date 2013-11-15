@@ -14,11 +14,29 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
+  	<div class="page-header">
+	    <h1>MobiSets</h1>
+	  </div>
+	  <ul id="main-tabs" class="nav nav-tabs">
+	    <li><a href="#home" data-toggle="tab">Home</a></li>
+	    <li><a href="#profile" data-toggle="tab">Profile</a></li>
+	    <li><a href="#messages" data-toggle="tab">Messages</a></li>
+	    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+	  </ul>
+
+	  <!-- Tab panes -->
+	  <div class="tab-content">
+	    <div class="tab-pane active" id="home">home</div>
+	    <div class="tab-pane" id="profile">profile</div>
+	    <div class="tab-pane" id="messages">messages</div>
+	    <div class="tab-pane" id="settings">settings</div>
+	  </div>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="_assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="_assets/js/main.js"></script>
   </body>
 </html>
