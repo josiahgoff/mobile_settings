@@ -1,42 +1,128 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MobiSets</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="_assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	 <title>MobiSets</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <!-- Bootstrap -->
+	 <link href="_assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+	 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	 <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	 <![endif]-->
   </head>
   <body>
-  	<div class="page-header">
-	    <h1>MobiSets</h1>
+	<div class="page-header">
+		 <h1>MobiSets</h1>
 	  </div>
 	  <ul id="main-tabs" class="nav nav-tabs">
-	    <li><a href="#home" data-toggle="tab">Home</a></li>
-	    <li><a href="#profile" data-toggle="tab">Profile</a></li>
-	    <li><a href="#messages" data-toggle="tab">Messages</a></li>
-	    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+		 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+		 <li><a href="#category" data-toggle="tab">Category</a></li>
+		 <li><a href="#product" data-toggle="tab">Product</a></li>
+		 <li><a href="#settings" data-toggle="tab">Settings</a></li>
 	  </ul>
 
 	  <!-- Tab panes -->
 	  <div class="tab-content">
-	    <div class="tab-pane active" id="home">home</div>
-	    <div class="tab-pane" id="profile">profile</div>
-	    <div class="tab-pane" id="messages">messages</div>
-	    <div class="tab-pane" id="settings">settings</div>
+
+		 <div class="tab-pane active" id="home">
+			<div class="container" role="form">
+				<div class="form-horizontal">
+					<div class="row">
+						<h1>Home Page Settings</h1>
+				  	<div id="home-hero-layouts" class="form-group">
+					 	<label class="col-sm-2 control-label">Hero Layouts</label>
+					 	<label class="radio-inline">
+							<input type="radio" name="home-hero-layouts" value="grid" checked> Grid
+					 	</label>
+					 	<label class="radio-inline">
+							<input type="radio" name="home-hero-layouts" value="single"> Single (Full Width)
+					 	</label>
+					 	<label class="radio-inline">
+							<input type="radio" name="home-hero-layouts" value="hide"> Hide
+					 	</label>
+				  	</div>
+			  	</div>
+			  	<div id="grid-setup" class="row">
+			  		<div class="form-group">
+			  			<label class="col-sm-2 control-label">Setup</label>
+						 	<label class="radio-inline">
+								<input type="radio" name="home-hero-layouts-setup" value="auto" checked> Auto
+						 	</label>
+						 	<label class="radio-inline">
+								<input type="radio" name="home-hero-layouts-setup" value="custom"> Custom
+						 	</label>
+				  	</div>
+		  	  	<div class="row">
+		  	  		<div id="home-hero-grid" class="row js-add-row" data-template="home-hero-grid-template"></div>
+			  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger" name="home-hero-grid">Add row</button>
+		  	  	</div>
+			  	</div>
+				</div>
+				<div class="form-horizontal">
+					<div class="row">
+					  <div class="form-group">
+						 <label for="inputEmail3" class="col-sm-2 control-label">Show Body Nav</label>
+						 <label class="checkbox-inline">
+							<input type="checkbox" id="inlineradio1" value="option1" checked>Yes
+						 </label>
+					  </div>
+				  </div>
+				</div>
+				<div class="row">
+					<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get code</button>
+				</div>
+				<div class="row">
+					<p>Copy the code below</p>
+					<textarea id="home-output" class="form-control code-output" rows="3" style="height: 150px;"></textarea>
+				</div>
+			</div>
+		 </div> <!-- #home -->
+
+		 <div class="tab-pane" id="category">
+			<h1>Category Page Settings</h1>
+		 </div>
+		 <div class="tab-pane" id="product">
+			<h1>Product Page Settings</h1>
+		 </div>
+		 <div class="tab-pane" id="settings">settings</div>
 	  </div>
 
+	  <div class="footer" style="height: 60px"></div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="_assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="_assets/js/main.js"></script>
+	  <!-- Handlebars templates -->
+	  <script id="code-output-template" type="text/x-handlebars-template">
+		  <div id="mobile_layout_settings"
+			  {{#if heroLayout}}data-hero_layout="{{heroLayout}}"{{/if}}
+			  {{#if heroLayoutSetup}}data-hero_layout_setup="{{heroLayoutSetup}}"{{/if}}>
+		  </div>
+		</script>
+		<script id="home-hero-grid-template" type="text/x-handlebars-template">
+			<div class="form-group col-md-6">
+	    	<label for="exampleInputEmail1">Left Image</label>
+	    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Left Image">
+	    	<label for="exampleInputEmail1">Left Title</label>
+	    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Left Title">
+	    	<label for="exampleInputEmail1">Left Link</label>
+	    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Left Link">
+	  	</div>
+	  	<div class="form-group col-md-6">
+	    	<label for="exampleInputEmail1">Right Image</label>
+	    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Right Image">
+	    	<label for="exampleInputEmail1">Right Title</label>
+	    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Right Title">
+	    	<label for="exampleInputEmail1">Right Link</label>
+	    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Right Link">
+	  	</div>
+		</script>
+
+	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	 <script src="https://code.jquery.com/jquery.js"></script>
+	 <!-- Include all compiled plugins (below), or include individual files as needed -->
+	 <script src="_assets/bootstrap/js/bootstrap.min.js"></script>
+	 <script src="_assets/js/handlebars-v1.1.2.js"></script>
+	 <script src="_assets/js/main.js"></script>
   </body>
 </html>
