@@ -21,7 +21,6 @@
 		 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
 		 <li><a href="#category" data-toggle="tab">Category</a></li>
 		 <li><a href="#product" data-toggle="tab">Product</a></li>
-		 <li><a href="#settings" data-toggle="tab">Settings</a></li>
 	  </ul>
 
 	  <!-- Tab panes -->
@@ -32,37 +31,42 @@
 				<div class="form-horizontal">
 					<div class="row">
 						<h1>Home Page Settings</h1>
-				  	<div id="home-hero-layouts" class="form-group">
+				  	<div id="hero-layouts" class="form-group">
 						 	<label class="col-sm-2 control-label">Hero Layouts</label>
 						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="home-hero-layouts" value="grid" data-req-name="home-hero-grid" checked> Grid
+								<input type="radio" name="hero-layouts" value="tile" data-req-name="hero-tile" checked> Tile
 						 	</label>
 						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="home-hero-layouts" value="single"  data-req-name="home-hero-single"> Single (Full Width)
+								<input type="radio" name="hero-layouts" value="single"  data-req-name="hero-single"> Single (Full Width)
 						 	</label>
 						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="home-hero-layouts" value="hide" data-req-name="home-hero-hide"> Hide
+								<input type="radio" name="hero-layouts" value="hide" data-req-name="hero-hide"> Hide
 						 	</label>
 				  	</div>
 			  	</div>
-			  	<div id="grid-setup" class="row">
-			  		<div class="form-group" name="hero-setup-" data-hide-req="home-hero-hide">
+			  	<div id="tile-setup" class="row">
+			  		<div class="form-group" name="hero-setup-" data-hide-req="hero-hide">
 			  			<label class="col-sm-2 control-label">Hero Setup</label>
 						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="home-hero-layouts-setup" value="auto" data-req-name="home-setup-auto" checked> Auto
+								<input type="radio" name="hero-layouts-setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
 						 	</label>
 						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="home-hero-layouts-setup" value="custom" data-req-name="home-setup-custom"> Custom
+								<input type="radio" name="hero-layouts-setup" value="custom" data-req-name="hero-setup-custom"> Custom
 						 	</label>
 				  	</div>
+				  	<div class="row" data-show-req="hero-setup-auto">
+				  		<label class="col-sm-2 control-label">How many heroes?</label>
+				  		<input type="number" name="hero-count" min="2" value="2" step="2" data-show-req="hero-tile">
+				  		<input class="hide" type="number" name="hero-count" min="1" value="1" data-show-req="hero-single">
+				  	</div>
 				  	<div name="hero-repeaters">
-				  		<div class="row hide" data-show-req="home-hero-grid home-setup-custom">
-			  	  		<div id="home-hero-grid" class="row js-add-row" data-template="home-hero-grid-template"></div>
-				  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="home-hero-grid">Add row</button>
+				  		<div class="row hide" data-show-req="hero-tile hero-setup-custom">
+			  	  		<div id="hero-tile" class="row js-add-row" data-template="hero-tile-template"></div>
+				  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-tile">Add row</button>
 			  	  	</div>
-			  	  	<div class="row hide" data-show-req="home-hero-single home-setup-custom">
-			  	  		<div id="home-hero-single" class="row js-add-row" data-template="home-hero-single-template"></div>
-				  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="home-hero-single">Add row</button>
+			  	  	<div class="row hide" data-show-req="hero-single hero-setup-custom">
+			  	  		<div id="hero-single" class="row js-add-row" data-template="hero-single-template"></div>
+				  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-single">Add row</button>
 			  	  	</div>
 				  	</div>
 			  	</div>
@@ -81,11 +85,11 @@
 				  </div>
 				</div>
 				<div class="row">
-					<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get code</button>
+					<h3>Hit the 'Get code' button and copy your code from below</h3>
+					<textarea id="home-output" class="form-control code-output" rows="3" style="height: 150px;"></textarea>
 				</div>
 				<div class="row">
-					<p>Copy the code below</p>
-					<textarea id="home-output" class="form-control code-output" rows="3" style="height: 150px;"></textarea>
+					<button type="button" class="btn btn-primary btn-lg js-convert-trigger pull-right">Get code</button>
 				</div>
 			</div>
 		 </div> <!-- #home -->
@@ -97,9 +101,6 @@
 		 <div class="tab-pane" id="product">
 			<h1>Product Page Settings</h1>
 		 </div>
-		 
-		 <div class="tab-pane" id="settings">settings</div>
-	  </div>
 
 	  <div class="footer" style="height: 60px"></div>
 
@@ -108,36 +109,37 @@
 		  <div id="mobile_layout_settings"
 			  {{#if heroLayout}}data-hero_layout="{{heroLayout}}"{{/if}}
 			  {{#if heroLayoutSetup}}data-hero_layout_setup="{{heroLayoutSetup}}"{{/if}}
-			  {{#if heroNum}}data-hero_num="{{heroNum}}"{{/if}}
+			  {{#if heroes}}{{#each heroes}}data-hero_src_{{math @index 1}}="{{src}}" data-hero_title_{{math @index 1}}="{{title}}" data-hero_link_{{math @index 1}}="{{link}}" {{/each}}{{/if}}
+			  {{#if heroCount}}data-hero_count="{{heroCount}}"{{/if}}
 			  {{#if bodyNav}}data-body_nav="{{bodyNav}}"{{/if}}>
 		  </div>
 		</script>
-		<script id="home-hero-grid-template" type="text/x-handlebars-template">
+		<script id="hero-tile-template" type="text/x-handlebars-template">
 			<div class="form-group col-md-6 hero">
 	    	<label>Left Image</label>
-	    	<input type="text" class="form-control" placeholder="Link to image">
+	    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
 	    	<label>Left Title</label>
-	    	<input type="text" class="form-control" placeholder="Product title">
+	    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
 	    	<label>Left Link</label>
-	    	<input type="text" class="form-control" placeholder="Link to product">
+	    	<input name="hero-link"type="text" class="form-control" placeholder="Link to product">
 	  	</div>
 	  	<div class="form-group col-md-6 hero">
 	    	<label>Right Image</label>
-	    	<input type="text" class="form-control" placeholder="Link to image">
+	    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
 	    	<label>Right Title</label>
-	    	<input type="text" class="form-control" placeholder="Product title">
+	    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
 	    	<label>Right Link</label>
-	    	<input type="text" class="form-control" placeholder="Link to product">
+	    	<input type="text" name="hero-link"class="form-control" placeholder="Link to product">
 	  	</div>
 		</script>
-		<script id="home-hero-single-template" type="text/x-handlebars-template">
+		<script id="hero-single-template" type="text/x-handlebars-template">
 			<div class="form-group hero">
 	    	<label>Image</label>
-	    	<input type="text" class="form-control" placeholder="Link to image">
+	    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
 	    	<label>Title</label>
-	    	<input type="text" class="form-control" placeholder="Product title">
+	    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
 	    	<label>Link</label>
-	    	<input type="text" class="form-control" placeholder="Link to product">
+	    	<input type="text" name="hero-link"class="form-control" placeholder="Link to product">
 	  	</div>
 		</script>
 

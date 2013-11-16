@@ -1,3 +1,24 @@
+// Math helper function for Handlebars
+Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+    if (arguments.length < 4) {
+        // Operator omitted, assuming "+"
+        options = rvalue;
+        rvalue = operator;
+        operator = "+";
+    }
+        
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+        
+    return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue
+    }[operator];
+});
+
 jQuery.fn.outputCode = function() {
 	var $pane = $(this),
 			$outputArea = $pane.find(".code-output"),
@@ -6,17 +27,28 @@ jQuery.fn.outputCode = function() {
 			outputTemplate = Handlebars.compile(source),
 			dataHeroes = [];
 
-	context.heroLayout = $pane.find("input[name='home-hero-layouts']:checked").val();
-	context.heroLayoutSetup = $pane.find("input[name='home-hero-layouts-setup']:checked").val();
-	$(".hero", $pane).not('.hide .hero').each(function() {
+	context.heroLayout = $pane.find("input[name='hero-layouts']:checked").val();
+	context.heroLayoutSetup = $pane.find("input[name='hero-layouts-setup']:checked").val();
+	
+	// hero properties
+	$(".hero", $pane).not('.hide .hero, .hide.hero').each(function() {
 		var hero = {};
-		hero.image = "image";
-		hero.title = "title";
-		hero.link = "link";
+		hero.src = $(this).find('[name="hero-image"]').val();
+		hero.title = $(this).find('[name="hero-title"]').val();
+		hero.link = $(this).find('[name="hero-link"]').val();
 
 		dataHeroes.push(hero);		
 	});
-	context.heroNum = dataHeroes.length;
+	context.heroes = dataHeroes;
+	
+	// hero count
+	if (context.heroLayoutSetup === "auto") {
+		context.heroCount = $('input[name="hero-count"]').not('.hide input[name="hero-count"], input[name="hero-count"].hide').val();
+	} else {
+		context.heroCount = dataHeroes.length;
+	}
+	
+	// body nav
 	context.bodyNav = $pane.find("input[name='home-body-nav']:checked").val();
 
 	$outputArea.html(outputTemplate(context));
