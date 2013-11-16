@@ -53,6 +53,7 @@ jQuery.fn.outputCode = function() {
 
 	$outputArea.html(outputTemplate(context));
 }
+
 jQuery.fn.addRow = function() {
 	var $container = $(this),
 			context = {},
@@ -61,6 +62,7 @@ jQuery.fn.addRow = function() {
 			outputTemplate = Handlebars.compile(source);
 	$container.append(outputTemplate(context));
 }
+
 function updateUI() {
 	$("[data-show-req]").each(function() {
 		var active = 0;
@@ -95,6 +97,7 @@ function updateUI() {
 		} 
 	});
 }
+
 $(document).ready(function() {
 
 	// Activate tabs
