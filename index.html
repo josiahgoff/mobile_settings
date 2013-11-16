@@ -14,95 +14,96 @@
 	 <![endif]-->
   </head>
   <body>
-	<div class="page-header">
-		 <h1>MobiSets</h1>
+		<div class="page-header">
+		 	<h1 class="text-primary text-center">MobiSets</h1>
 	  </div>
-	  <ul id="main-tabs" class="nav nav-tabs">
-		 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-		 <li><a href="#category" data-toggle="tab">Category</a></li>
-		 <li><a href="#product" data-toggle="tab">Product</a></li>
-	  </ul>
+	  <div class="container">
+		  <ul id="main-tabs" class="nav nav-tabs">
+			 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+			 <li><a href="#category" data-toggle="tab">Category</a></li>
+			 <li><a href="#product" data-toggle="tab">Product</a></li>
+		  </ul>
 
-	  <!-- Tab panes -->
-	  <div class="tab-content">
+		  <!-- Tab panes -->
+		  <div class="tab-content">
 
-		 <div class="tab-pane active" id="home">
-			<div class="container" role="form">
-				<div class="form-horizontal">
-					<div class="row">
-						<h1>Home Page Settings</h1>
-				  	<div id="hero-layouts" class="form-group">
-						 	<label class="col-sm-2 control-label">Hero Layouts</label>
-						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="hero-layouts" value="tile" data-req-name="hero-tile" checked> Tile
-						 	</label>
-						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="hero-layouts" value="single"  data-req-name="hero-single"> Single (Full Width)
-						 	</label>
-						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="hero-layouts" value="hide" data-req-name="hero-hide"> Hide
-						 	</label>
+			 <div class="tab-pane active" id="home">
+				<div role="form">
+					<div class="form-horizontal">
+						<div class="row">
+							<h1>Home Page Settings</h1>
+					  	<div id="hero-layouts" class="form-group">
+							 	<label class="col-sm-2 control-label">Hero Layouts</label>
+							 	<label class="radio-inline js-update-ui">
+									<input type="radio" name="hero-layouts" value="tile" data-req-name="hero-tile" checked> Tile
+							 	</label>
+							 	<label class="radio-inline js-update-ui">
+									<input type="radio" name="hero-layouts" value="single"  data-req-name="hero-single"> Single (Full Width)
+							 	</label>
+							 	<label class="radio-inline js-update-ui">
+									<input type="radio" name="hero-layouts" value="hide" data-req-name="hero-hide"> Hide
+							 	</label>
+					  	</div>
 				  	</div>
-			  	</div>
-			  	<div id="tile-setup" class="row">
-			  		<div class="form-group" name="hero-setup-" data-hide-req="hero-hide">
-			  			<label class="col-sm-2 control-label">Hero Setup</label>
-						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="hero-layouts-setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
-						 	</label>
-						 	<label class="radio-inline js-update-ui">
-								<input type="radio" name="hero-layouts-setup" value="custom" data-req-name="hero-setup-custom"> Custom
-						 	</label>
+				  	<div id="tile-setup" class="row">
+				  		<div class="form-group" name="hero-setup-" data-hide-req="hero-hide">
+				  			<label class="col-sm-2 control-label">Hero Setup</label>
+							 	<label class="radio-inline js-update-ui">
+									<input type="radio" name="hero-layouts-setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
+							 	</label>
+							 	<label class="radio-inline js-update-ui">
+									<input type="radio" name="hero-layouts-setup" value="custom" data-req-name="hero-setup-custom"> Custom
+							 	</label>
+					  	</div>
+					  	<div class="row" data-show-req="hero-setup-auto">
+					  		<label class="col-sm-2 control-label" data-hide-req="hero-hide">How many heroes?</label>
+					  		<input type="number" name="hero-count" min="2" value="2" step="2" data-show-req="hero-tile">
+					  		<input class="hidden" type="number" name="hero-count" min="1" value="1" data-show-req="hero-single">
+					  	</div>
+					  	<div name="hero-repeaters">
+					  		<div class="row hidden" data-show-req="hero-tile hero-setup-custom">
+				  	  		<div id="hero-tile" class="row js-add-row" data-template="hero-tile-template"></div>
+					  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-tile">Add row</button>
+				  	  	</div>
+				  	  	<div class="row hidden" data-show-req="hero-single hero-setup-custom">
+				  	  		<div id="hero-single" class="row js-add-row" data-template="hero-single-template"></div>
+					  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-single">Add row</button>
+				  	  	</div>
+					  	</div>
 				  	</div>
-				  	<div class="row" data-show-req="hero-setup-auto">
-				  		<label class="col-sm-2 control-label">How many heroes?</label>
-				  		<input type="number" name="hero-count" min="2" value="2" step="2" data-show-req="hero-tile">
-				  		<input class="hide" type="number" name="hero-count" min="1" value="1" data-show-req="hero-single">
-				  	</div>
-				  	<div name="hero-repeaters">
-				  		<div class="row hide" data-show-req="hero-tile hero-setup-custom">
-			  	  		<div id="hero-tile" class="row js-add-row" data-template="hero-tile-template"></div>
-				  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-tile">Add row</button>
-			  	  	</div>
-			  	  	<div class="row hide" data-show-req="hero-single hero-setup-custom">
-			  	  		<div id="hero-single" class="row js-add-row" data-template="hero-single-template"></div>
-				  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-single">Add row</button>
-			  	  	</div>
-				  	</div>
-			  	</div>
-				</div>
-				<div class="form-horizontal">
-					<div class="row">
-					  <div class="form-group">
-						 <label class="col-sm-2 control-label">Show Body Nav</label>
-						 	<label class="radio-inline">
-								<input type="radio" name="home-body-nav" value="yes" checked> Yes
-						 	</label>
-						 	<label class="radio-inline">
-								<input type="radio" name="home-body-nav" value="no"> No
-						 	</label>
+					</div>
+					<div class="form-horizontal">
+						<div class="row">
+						  <div class="form-group">
+							 <label class="col-sm-2 control-label">Show Body Nav</label>
+							 	<label class="radio-inline">
+									<input type="radio" name="home-body-nav" value="yes" checked> Yes
+							 	</label>
+							 	<label class="radio-inline">
+									<input type="radio" name="home-body-nav" value="no"> No
+							 	</label>
+						  </div>
 					  </div>
-				  </div>
+					</div>
+					<div class="row">
+						<h3>Hit the 'Get code' button and copy your code from below</h3>
+						<textarea id="home-output" class="form-control code-output" rows="3" style="height: 150px;"></textarea>
+					</div>
+					<div class="row">
+						<button type="button" class="btn btn-primary btn-lg js-convert-trigger pull-right">Get code</button>
+					</div>
 				</div>
-				<div class="row">
-					<h3>Hit the 'Get code' button and copy your code from below</h3>
-					<textarea id="home-output" class="form-control code-output" rows="3" style="height: 150px;"></textarea>
-				</div>
-				<div class="row">
-					<button type="button" class="btn btn-primary btn-lg js-convert-trigger pull-right">Get code</button>
-				</div>
+			 </div> <!-- #home -->
+
+			<div class="tab-pane" id="category">
+				<h1>Category Page Settings</h1>
 			</div>
-		 </div> <!-- #home -->
-
-		 <div class="tab-pane" id="category">
-			<h1>Category Page Settings</h1>
-		 </div>
-		 
-		 <div class="tab-pane" id="product">
-			<h1>Product Page Settings</h1>
-		 </div>
-
-	  <div class="footer" style="height: 60px"></div>
+			
+			<div class="tab-pane" id="product">
+				<h1>Product Page Settings</h1>
+			</div>
+		</div>
+	  <div class="page-footer" style="height: 60px"></div>
 
 	  <!-- Handlebars templates -->
 	  <script id="code-output-template" type="text/x-handlebars-template">

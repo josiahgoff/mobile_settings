@@ -31,7 +31,7 @@ jQuery.fn.outputCode = function() {
 	context.heroLayoutSetup = $pane.find("input[name='hero-layouts-setup']:checked").val();
 	
 	// hero properties
-	$(".hero", $pane).not('.hide .hero, .hide.hero').each(function() {
+	$(".hero", $pane).not('.hidden .hero, .hidden.hero').each(function() {
 		var hero = {};
 		hero.src = $(this).find('[name="hero-image"]').val();
 		hero.title = $(this).find('[name="hero-title"]').val();
@@ -43,7 +43,7 @@ jQuery.fn.outputCode = function() {
 	
 	// hero count
 	if (context.heroLayoutSetup === "auto") {
-		context.heroCount = $('input[name="hero-count"]').not('.hide input[name="hero-count"], input[name="hero-count"].hide').val();
+		context.heroCount = $('input[name="hero-count"]').not('.hidden input[name="hero-count"], input[name="hero-count"].hidden').val();
 	} else {
 		context.heroCount = dataHeroes.length;
 	}
@@ -74,10 +74,10 @@ function updateUI() {
 		  }
 		}
 
-		if (active > 0 && !$(this).hasClass("hide")) {
-			$(this).addClass('hide');
-		} else if (active === 0 && $(this).hasClass("hide")) {
-			$(this).removeClass('hide');
+		if (active > 0 && !$(this).hasClass("hidden")) {
+			$(this).addClass('hidden');
+		} else if (active === 0 && $(this).hasClass("hidden")) {
+			$(this).removeClass('hidden');
 		}
 	});
 	$("[data-hide-req]").each(function() {
@@ -90,10 +90,10 @@ function updateUI() {
 		  }
 		}
 
-		if (active > 0 && $(this).hasClass("hide")) {
-			$(this).removeClass('hide');
-		} else if (active === 0 && !$(this).hasClass("hide")) {
-			$(this).addClass('hide');
+		if (active > 0 && $(this).hasClass("hidden")) {
+			$(this).removeClass('hidden');
+		} else if (active === 0 && !$(this).hasClass("hidden")) {
+			$(this).addClass('hidden');
 		} 
 	});
 }
