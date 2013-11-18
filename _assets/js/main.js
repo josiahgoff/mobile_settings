@@ -19,6 +19,16 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
     }[operator];
 });
 
+function countHeroes($pane) {
+	var count = $(".hero", $pane).not('.hidden .hero, .hidden.hero').length;
+
+	return count;
+}
+
+function updateHeroCount(count, $pane) {
+	$(".hero-count", $pane).not('.hidden .hero-count, .hidden.hero-count').text(count);
+}
+
 jQuery.fn.outputCode = function() {
 	var $pane = $(this),
 			$outputArea = $pane.find(".code-output"),
@@ -63,6 +73,8 @@ jQuery.fn.addRow = function() {
 }
 
 function updateUI() {
+	var $pane = $('.tab-pane.active');
+
 	$("[data-show-req]").each(function() {
 		var active = 0;
 		var reqs = $(this).attr("data-show-req").split(/\s+/);
@@ -95,6 +107,8 @@ function updateUI() {
 			$(this).addClass('hidden');
 		} 
 	});
+	updateHeroCount(countHeroes($pane), $pane);
+	
 }
 
 $(document).ready(function() {
@@ -113,8 +127,16 @@ $(document).ready(function() {
 	// Remove selected row
 	$('[name="hero-repeaters"]').delegate( '.js-delete-row', 'click', function(e) {
 		$(this).closest('.row').remove();
+		updateUI();
 	});
 	
+	// Listen add row trigger
+	$('.js-add-row-trigger').click(function(e) {
+		var targetName = $(this).attr("name");
+		var $container = $("#" + targetName);
+		$container.addRow();
+		updateUI();
+	});
 
 	// Listen for convert code trigger
 	$('.js-convert-trigger').click(function(e) {
@@ -127,14 +149,8 @@ $(document).ready(function() {
 	// 	$(this).select();
 	// });
 
-	// Listen add row trigger
-	$('.js-add-row-trigger').click(function(e) {
-		var targetName = $(this).attr("name");
-		var $container = $("#" + targetName);
-		$container.addRow();
-	});
 
-	// Swap triggers
+	// UI update triggers
 	$('.js-update-ui').click(function() {
 		updateUI();
 	});
