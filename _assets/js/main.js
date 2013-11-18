@@ -50,8 +50,7 @@ jQuery.fn.outputCode = function() {
 	
 	// body nav
 	context.bodyNav = $pane.find("input[name='home-body-nav']:checked").val();
-
-	$outputArea.html(outputTemplate(context));
+	$outputArea.html($.trim(outputTemplate(context)));
 }
 
 jQuery.fn.addRow = function() {
@@ -111,11 +110,22 @@ $(document).ready(function() {
 		$(this).addRow();
 	});
 
+	// Remove selected row
+	$('[name="hero-repeaters"]').delegate( '.js-delete-row', 'click', function(e) {
+		$(this).closest('.row').remove();
+	});
+	
+
 	// Listen for convert code trigger
 	$('.js-convert-trigger').click(function(e) {
 		var $activePane = $(this).closest(".tab-pane");
 		$activePane.outputCode();
 	});
+
+	// Select all contents of code textarea when it's clicked
+	// $(".code-output").focus(function() {
+	// 	$(this).select();
+	// });
 
 	// Listen add row trigger
 	$('.js-add-row-trigger').click(function(e) {

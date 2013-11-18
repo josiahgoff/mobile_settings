@@ -5,6 +5,7 @@
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 <!-- Bootstrap -->
 	 <link href="_assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="_assets/styles/main.css" rel="stylesheet">
 
 	 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,68 +30,79 @@
 
 			 <div class="tab-pane active" id="home">
 				<div role="form">
-					<div class="form-horizontal">
-						<div class="row">
-							<h1>Home Page Settings</h1>
-					  	<div id="hero-layouts" class="form-group">
+					<div class="form-horizontal row">
+						<div class="col-sm-12">
+							<div class="row">
+								<h2 class="col-sm-10 col-sm-offset-2">Home Page Settings</h2>
+							</div>
+					  	<div id="hero-layouts" class="form-group row">
 							 	<label class="col-sm-2 control-label">Hero Layouts</label>
-							 	<label class="radio-inline js-update-ui">
-									<input type="radio" name="hero-layouts" value="tile" data-req-name="hero-tile" checked> Tile
-							 	</label>
-							 	<label class="radio-inline js-update-ui">
-									<input type="radio" name="hero-layouts" value="single"  data-req-name="hero-single"> Single (Full Width)
-							 	</label>
-							 	<label class="radio-inline js-update-ui">
-									<input type="radio" name="hero-layouts" value="hide" data-req-name="hero-hide"> Hide
-							 	</label>
+							 	<div class="col-sm-10">
+						 		 	<label class="radio-inline js-update-ui">
+						 				<input type="radio" name="hero-layouts" value="tile" data-req-name="hero-tile" checked> Tile
+						 		 	</label>
+						 		 	<label class="radio-inline js-update-ui">
+						 				<input type="radio" name="hero-layouts" value="single"  data-req-name="hero-single"> Single (Full Width)
+						 		 	</label>
+						 		 	<label class="radio-inline js-update-ui">
+						 				<input type="radio" name="hero-layouts" value="hide" data-req-name="hero-hide"> Hide
+						 		 	</label>
+							 	</div>
 					  	</div>
 				  	</div>
-				  	<div id="tile-setup" class="row">
-				  		<div class="form-group" name="hero-setup-" data-hide-req="hero-hide">
+				  	<div id="tile-setup" class="col-sm-12">
+				  		<div class="row form-group" name="hero-setup" data-hide-req="hero-hide">
 				  			<label class="col-sm-2 control-label">Hero Setup</label>
-							 	<label class="radio-inline js-update-ui">
-									<input type="radio" name="hero-layouts-setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
-							 	</label>
-							 	<label class="radio-inline js-update-ui">
-									<input type="radio" name="hero-layouts-setup" value="custom" data-req-name="hero-setup-custom"> Custom
-							 	</label>
+				  			<div class="col-sm-10">
+								 	<label class="radio-inline js-update-ui">
+										<input type="radio" name="hero-layouts-setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
+								 	</label>
+								 	<label class="radio-inline js-update-ui">
+										<input type="radio" name="hero-layouts-setup" value="custom" data-req-name="hero-setup-custom"> Custom
+								 	</label>
+								 </div>
 					  	</div>
 					  	<div class="row" data-show-req="hero-setup-auto">
 					  		<label class="col-sm-2 control-label" data-hide-req="hero-hide">How many heroes?</label>
-					  		<input type="number" name="hero-count" min="2" value="2" step="2" data-show-req="hero-tile">
-					  		<input class="hidden" type="number" name="hero-count" min="1" value="1" data-show-req="hero-single">
+					  		<div class="col-sm-10">
+						  		<input type="number" name="hero-count" min="2" value="2" step="2" data-show-req="hero-tile">
+						  		<input class="hidden" type="number" name="hero-count" min="1" value="1" data-show-req="hero-single">
+						  	</div>
 					  	</div>
-					  	<div name="hero-repeaters">
-					  		<div class="row hidden" data-show-req="hero-tile hero-setup-custom">
-				  	  		<div id="hero-tile" class="row js-add-row" data-template="hero-tile-template"></div>
+					  	<div name="hero-repeaters" class="clearfix marg-btm hidden" data-hide-req="hero-setup-auto">
+					  		<div class="row">
+						  		<h4 class="col-sm-10 col-sm-offset-2">Add custom heroes</h4>
+						  	</div>
+					  		<div class="hidden" data-show-req="hero-tile hero-setup-custom">
+				  	  		<div id="hero-tile" class="js-add-row" data-template="hero-tile-template"></div>
 					  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-tile">Add row</button>
 				  	  	</div>
-				  	  	<div class="row hidden" data-show-req="hero-single hero-setup-custom">
-				  	  		<div id="hero-single" class="row js-add-row" data-template="hero-single-template"></div>
+				  	  	<div class="hidden" data-show-req="hero-single hero-setup-custom">
+				  	  		<div id="hero-single" class="js-add-row" data-template="hero-single-template"></div>
 					  		  <button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-single">Add row</button>
 				  	  	</div>
 					  	</div>
 				  	</div>
+				  	<div class="col-sm-12">
+				  		<div class="row form-group">
+			  				<label class="col-sm-2 control-label">Show Body Nav</label>
+			  				<div class="col-sm-10">
+			  				 	<label class="radio-inline">
+			  						<input type="radio" name="home-body-nav" value="yes" checked> Yes
+			  				 	</label>
+			  				 	<label class="radio-inline">
+			  						<input type="radio" name="home-body-nav" value="no"> No
+			  				 	</label>
+			  				</div>
+				  	  </div>
+				  	</div>
 					</div>
-					<div class="form-horizontal">
-						<div class="row">
-						  <div class="form-group">
-							 <label class="col-sm-2 control-label">Show Body Nav</label>
-							 	<label class="radio-inline">
-									<input type="radio" name="home-body-nav" value="yes" checked> Yes
-							 	</label>
-							 	<label class="radio-inline">
-									<input type="radio" name="home-body-nav" value="no"> No
-							 	</label>
-						  </div>
-					  </div>
-					</div>
-					<div class="row">
-						<h3>Hit the 'Get code' button and copy your code from below</h3>
-						<textarea id="home-output" class="form-control code-output" rows="3" style="height: 150px;"></textarea>
-					</div>
-					<div class="row">
-						<button type="button" class="btn btn-primary btn-lg js-convert-trigger pull-right">Get code</button>
+					<div class="row clearfix">
+						<div class="col-sm-8 col-sm-offset-2">
+							<h3>Hit the 'Get code' button and copy your code from below</h3>
+							<textarea id="home-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
+							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get code</button>
+						</div>
 					</div>
 				</div>
 			 </div> <!-- #home -->
@@ -108,39 +120,48 @@
 	  <!-- Handlebars templates -->
 	  <script id="code-output-template" type="text/x-handlebars-template">
 		  <div id="mobile_layout_settings"
-			  {{#if heroLayout}}data-hero_layout="{{heroLayout}}"{{/if}}
-			  {{#if heroLayoutSetup}}data-hero_layout_setup="{{heroLayoutSetup}}"{{/if}}
-			  {{#if heroes}}{{#each heroes}}data-hero_src_{{math @index 1}}="{{src}}" data-hero_title_{{math @index 1}}="{{title}}" data-hero_link_{{math @index 1}}="{{link}}" {{/each}}{{/if}}
-			  {{#if heroCount}}data-hero_count="{{heroCount}}"{{/if}}
-			  {{#if bodyNav}}data-body_nav="{{bodyNav}}"{{/if}}>
-		  </div>
+			  {{~#if heroLayout}} data-hero_layout="{{heroLayout}}"{{/if}}
+			  {{~#if heroLayoutSetup}} data-hero_layout_setup="{{heroLayoutSetup}}"{{/if}}
+			  {{~#if heroes}}{{~#each heroes}} data-hero_src_{{math @index 1}}="{{src}}" data-hero_title_{{math @index 1}}="{{title}}" data-hero_link_{{math @index 1}}="{{link}}"{{/each}}{{/if}}
+			  {{~#if heroCount}} data-hero_count="{{heroCount}}"{{/if}}
+			  {{~#if bodyNav}} data-body_nav="{{bodyNav}}"{{/if}}></div>
 		</script>
 		<script id="hero-tile-template" type="text/x-handlebars-template">
-			<div class="form-group col-md-6 hero">
-	    	<label>Left Image</label>
-	    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
-	    	<label>Left Title</label>
-	    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
-	    	<label>Left Link</label>
-	    	<input name="hero-link"type="text" class="form-control" placeholder="Link to product">
-	  	</div>
-	  	<div class="form-group col-md-6 hero">
-	    	<label>Right Image</label>
-	    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
-	    	<label>Right Title</label>
-	    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
-	    	<label>Right Link</label>
-	    	<input type="text" name="hero-link"class="form-control" placeholder="Link to product">
+			<div class="row">
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-danger btn-xs pull-right js-delete-row">&times;</button>
+				</div>
+				<div class="col-sm-5 hero">
+		    	<label>Left Image</label>
+		    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
+		    	<label>Left Title</label>
+		    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
+		    	<label>Left Link</label>
+		    	<input name="hero-link"type="text" class="form-control" placeholder="Link to product">
+		  	</div>
+		  	<div class="col-sm-5 hero">
+		    	<label>Right Image</label>
+		    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
+		    	<label>Right Title</label>
+		    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
+		    	<label>Right Link</label>
+		    	<input type="text" name="hero-link"class="form-control" placeholder="Link to product">
+		  	</div>
 	  	</div>
 		</script>
 		<script id="hero-single-template" type="text/x-handlebars-template">
-			<div class="form-group hero">
-	    	<label>Image</label>
-	    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
-	    	<label>Title</label>
-	    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
-	    	<label>Link</label>
-	    	<input type="text" name="hero-link"class="form-control" placeholder="Link to product">
+			<div class="row">
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-danger btn-xs pull-right js-delete-row">&times;</button>
+				</div>
+				<div class="hero col-sm-10">
+		    	<label>Image</label>
+		    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
+		    	<label>Title</label>
+		    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
+		    	<label>Link</label>
+		    	<input type="text" name="hero-link"class="form-control" placeholder="Link to product">
+		  	</div>
 	  	</div>
 		</script>
 
