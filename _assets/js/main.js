@@ -19,14 +19,9 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
     }[operator];
 });
 
-function countHeroes($pane) {
-	var count = $(".hero", $pane).not('.hidden .hero, .hidden.hero').length;
-
-	return count;
-}
-
-function updateHeroCount(count, $pane) {
-	$(".hero-count", $pane).not('.hidden .hero-count, .hidden.hero-count').text(count);
+function updateHeroCount() {
+	var count = $(".hero", '.tab-pane.active').not('.hidden .hero, .hidden.hero').length;
+	$(".hero-count", '.tab-pane.active').not('.hidden .hero-count, .hidden.hero-count').text(count);
 }
 
 jQuery.fn.isHidden = function() {
@@ -121,7 +116,7 @@ function updateUI() {
 			$(this).addClass('hidden');
 		} 
 	});
-	updateHeroCount(countHeroes($pane), $pane);
+	updateHeroCount();
 	
 }
 
@@ -159,23 +154,11 @@ $(document).ready(function() {
 		$activePane.outputCode();
 	});
 
-	// Select all contents of code textarea when it's clicked
-	// $(".code-output").focus(function() {
-	// 	$(this).select();
-	// });
-
-
-	// UI update triggers
+	// Listen for UI update triggers
 	$('.js-update-ui').click(function() {
 		updateUI();
 	});
 
 	updateUI();
-
-	// $('.control-label').click(function() {
-	// 	$('input[data-output="hero_count"]:not(.hidden)').each(function() {
-	// 		console.log($(this))
-	// 	});
-	// });
 
 });
