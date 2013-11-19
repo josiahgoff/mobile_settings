@@ -1,5 +1,9 @@
-$row_height: 25px;
+$row_baseline: 25px;
 
 .row, .marg-btm {
-	margin-bottom: $row_height;
-} 
+	margin-bottom: $row_baseline;
+}
+
+.marg-top {
+	margin-top: $row_baseline;
+}
