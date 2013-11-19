@@ -5,3 +5,7 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\000037}}
 .marg-top {
   margin-top: 25px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000311}}
+p {
+  margin-bottom: 1.5em; }
