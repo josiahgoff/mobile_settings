@@ -38,7 +38,7 @@ jQuery.fn.outputCode = function() {
 			dataHeroes = [];
 
 	// Properties other than heroes
-	$($pane).find('input:not(.hidden)').not('input[type="radio"]:not(:checked), input[type="radio"]:not(:checked), input[data-output="hero_count"]').each(function() {
+	$($pane).find('input:not(.hidden)').not('input[type="radio"]:not(:checked), input[type="radio"]:not(:checked), input[data-output="hero_count"], .hero input').each(function() {
 		if (! $(this).isHidden()) {
 			var opts = {};
 			opts.name = $(this).attr('data-output');
