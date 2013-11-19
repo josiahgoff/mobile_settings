@@ -43,13 +43,13 @@
 							 	<label class="col-sm-2 control-label">Hero Layouts</label>
 							 	<div class="col-sm-10">
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="hero_layout" value="tile" data-req-name="hero-tile" checked> Tile
+						 				<input type="radio" name="home-hero-layout" data-output="hero_layout" value="tile" data-req-name="hero-tile" checked> Tile
 						 		 	</label>
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="hero_layout" value="single"  data-req-name="hero-single"> Single (Full Width)
+						 				<input type="radio" name="home-hero-layout" data-output="hero_layout" value="single"  data-req-name="hero-single"> Single (Full Width)
 						 		 	</label>
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="hero_layout" value="hide" data-req-name="hero-hide"> Hide
+						 				<input type="radio" name="home-hero-layout" data-output="hero_layout" value="hide" data-req-name="hero-hide"> Hide
 						 		 	</label>
 							 	</div>
 					  	</div>
@@ -57,14 +57,14 @@
 
 				  	<!-- Hero setups -->
 				  	<div class="col-sm-12 hero-setup">
-				  		<div class="row form-group js-form-group" name="hero-setup" data-hide-req="hero-hide">
+				  		<div class="row form-group js-form-group" data-output="hero-setup" data-hide-req="hero-hide">
 				  			<label class="col-sm-2 control-label">Hero Setup</label>
 				  			<div class="col-sm-10">
 								 	<label class="radio-inline js-update-ui">
-										<input type="radio" name="hero_layout_setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
+										<input type="radio" name="home-hero-layout-setup" data-output="hero_layout_setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
 								 	</label>
 								 	<label class="radio-inline js-update-ui">
-										<input type="radio" name="hero_layout_setup" value="custom" data-req-name="hero-setup-custom"> Custom
+										<input type="radio" name="home-hero-layout-setup" data-output="hero_layout_setup" value="custom" data-req-name="hero-setup-custom"> Custom
 								 	</label>
 								 </div>
 					  	</div>
@@ -74,39 +74,39 @@
 					  	<div class="row" data-show-req="hero-setup-auto">
 					  		<label class="col-sm-2 control-label" data-hide-req="hero-hide">How many heroes?</label>
 					  		<div class="col-sm-10">
-						  		<input type="number" name="hero_count" min="2" value="2" step="2" data-show-req="hero-tile">
-						  		<input class="hidden" type="number" name="hero_count" min="1" value="1" data-show-req="hero-single">
+						  		<input type="number" data-output="hero_count" min="2" value="2" step="2" data-show-req="hero-tile hero-setup-auto">
+						  		<input class="hidden" type="number" data-output="hero_count" min="1" value="1" data-show-req="hero-single hero-setup-auto">
 						  	</div>
 					  	</div>
 
 					  	<!-- Hero repeaters -->
-					  	<div name="hero-repeaters" class="clearfix marg-btm hidden" data-hide-req="hero-setup-auto">
+					  	<div data-output="hero-repeaters" class="clearfix marg-btm hidden" data-hide-req="hero-setup-auto">
 					  		<div class="row" data-hide-req="hero-hide">
 						  		<h4 class="col-sm-10 col-sm-offset-2">Add custom heroes</h4>
 						  	</div>
 
 						  	<!-- Tile heroes -->
 					  		<div class="hidden" data-show-req="hero-tile hero-setup-custom">
-				  	  		<div class="js-add-row hero-tile" data-template="hero-tile-template"></div>
+				  	  		<div id="home-hero-tile" class="js-add-row hero-tile" data-template="hero-tile-template"></div>
   			  	  		<div class="row">
   			  	  			<div class="col-sm-8 col-sm-offset-2">
   			  	  				<p><em>Total heroes:</em> <span class="hero-count"></span></p>
   			  	  			</div>
   		  	  				<div class="col-sm-2">
-  			  	  				<button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-tile">Add row</button>
+  			  	  				<button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" data-target="home-hero-tile">Add row</button>
   			  	  			</div>
   			  	  		</div>
 				  	  	</div>
 
 				  	  	<!-- Single heroes -->
 				  	  	<div class="hidden" data-show-req="hero-single hero-setup-custom">
-				  	  		<div class="js-add-row hero-single" data-template="hero-single-template"></div>
+				  	  		<div id="home-hero-single" class="js-add-row" data-template="hero-single-template"></div>
 				  	  		<div class="row">
 				  	  			<div class="col-sm-8 col-sm-offset-2">
 				  	  				<p><em>Total heroes:</em> <span class="hero-count"></span></p>
 				  	  			</div>
 			  	  				<div class="col-sm-2">
-				  	  				<button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" name="hero-single">Add row</button>
+				  	  				<button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" data-target="home-hero-single">Add row</button>
 				  	  			</div>
 				  	  		</div>
 				  	  	</div>
@@ -119,10 +119,10 @@
 			  				<label class="col-sm-2 control-label">Show Body Nav</label>
 			  				<div class="col-sm-10">
 			  				 	<label class="radio-inline">
-			  						<input type="radio" name="home_body_nav" value="yes" checked> Yes
+			  						<input type="radio" data-output="home_body_nav" value="yes" checked> Yes
 			  				 	</label>
 			  				 	<label class="radio-inline">
-			  						<input type="radio" name="home_body_nav" value="no"> No
+			  						<input type="radio" data-output="home_body_nav" value="no"> No
 			  				 	</label>
 			  				</div>
 				  	  </div>
@@ -153,10 +153,10 @@
 							 	<label class="col-sm-2 control-label">Banner Setup</label>
 							 	<div class="col-sm-10">
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="cat-banner-setup" value="image" checked> Image
+						 				<input type="radio" name="cat-banner-setup" data-output="banner_setup" value="image" checked> Image
 						 		 	</label>
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="cat-banner-setup" value="text"> Text
+						 				<input type="radio" name="cat-banner-setup" data-output="banner_setup" value="text"> Text
 						 		 	</label>
 							 	</div>
 					  	</div>
@@ -194,19 +194,19 @@
 				</div>
 				<div class="col-sm-5 hero">
 		    	<label>Left Image</label>
-		    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
+		    	<input data-output="hero-image" type="text" class="form-control" placeholder="Link to image">
 		    	<label>Left Title</label>
-		    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
+		    	<input data-output="hero-title" type="text" class="form-control" placeholder="Product title">
 		    	<label>Left Link</label>
-		    	<input name="hero-link"type="text" class="form-control" placeholder="Link to product">
+		    	<input data-output="hero-link"type="text" class="form-control" placeholder="Link to product">
 		  	</div>
 		  	<div class="col-sm-5 hero">
 		    	<label>Right Image</label>
-		    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
+		    	<input data-output="hero-image" type="text" class="form-control" placeholder="Link to image">
 		    	<label>Right Title</label>
-		    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
+		    	<input data-output="hero-title" type="text" class="form-control" placeholder="Product title">
 		    	<label>Right Link</label>
-		    	<input type="text" name="hero-link"class="form-control" placeholder="Link to product">
+		    	<input type="text" data-output="hero-link"class="form-control" placeholder="Link to product">
 		  	</div>
 	  	</div>
 		</script>
@@ -217,11 +217,11 @@
 				</div>
 				<div class="hero col-sm-10">
 		    	<label>Image</label>
-		    	<input name="hero-image" type="text" class="form-control" placeholder="Link to image">
+		    	<input data-output="hero-image" type="text" class="form-control" placeholder="Link to image">
 		    	<label>Title</label>
-		    	<input name="hero-title" type="text" class="form-control" placeholder="Product title">
+		    	<input data-output="hero-title" type="text" class="form-control" placeholder="Product title">
 		    	<label>Link</label>
-		    	<input type="text" name="hero-link"class="form-control" placeholder="Link to product">
+		    	<input type="text" data-output="hero-link"class="form-control" placeholder="Link to product">
 		  	</div>
 	  	</div>
 		</script>

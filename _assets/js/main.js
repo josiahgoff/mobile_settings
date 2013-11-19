@@ -43,25 +43,24 @@ jQuery.fn.outputCode = function() {
 			dataHeroes = [];
 
 	// Properties other than heroes
-	$(".js-form-group", $pane).find('input').not('input:not(:checked)').each(function() {
+	$(".js-form-group", $pane).find('input:not(.hidden)').not('input:not(:checked), input[data-output="hero_count"]').each(function() {
 		if (! $(this).isHidden()) {
 			var opts = {};
-			opts.name = $(this).attr('name');
+			opts.name = $(this).attr('data-output');
 			opts.val = $(this).val();
 
 			dataOptions.push(opts);
 		}		
 	});
 	context.options = dataOptions;
-	console.log(context.options);
 	
 	// hero properties
 	$(".hero", $pane).each(function() {
 		if (! $(this).isHidden()) {
 			var hero = {};
-			hero.src = $(this).find('[name="hero-image"]').val();
-			hero.title = $(this).find('[name="hero-title"]').val();
-			hero.link = $(this).find('[name="hero-link"]').val();
+			hero.src = $(this).find('[data-output="hero-image"]').val();
+			hero.title = $(this).find('[data-output="hero-title"]').val();
+			hero.link = $(this).find('[data-output="hero-link"]').val();
 
 			dataHeroes.push(hero);
 		}		
@@ -69,10 +68,11 @@ jQuery.fn.outputCode = function() {
 	context.heroes = dataHeroes;
 	
 	// hero count
-	if ($('input[name="hero_count"]', $pane).isHidden()) {
+	if ($('input[data-output="hero_count"]:not(.hidden)', $pane).length === 0) {
 		context.heroCount = dataHeroes.length;
-		console.log('count is hidden');
-		console.log(dataHeroes.length);
+	} else if ($('input[data-output="hero_count"]:not(.hidden)', $pane).length > 0) {
+		context.heroCount = $('input[data-output="hero_count"]:not(.hidden)', $pane).val();
+	} else {
 	}
 	
 	$outputArea.html($.trim(outputTemplate(context)));
@@ -140,15 +140,16 @@ $(document).ready(function() {
 	});
 
 	// Remove selected row
-	$('[name="hero-repeaters"]').delegate( '.js-delete-row', 'click', function(e) {
+	$('[data-output="hero-repeaters"]').delegate( '.js-delete-row', 'click', function(e) {
 		$(this).closest('.row').remove();
 		updateUI();
 	});
 	
 	// Listen add row trigger
 	$('.js-add-row-trigger').click(function(e) {
-		var targetName = $(this).attr("name");
-		var $container = $("#" + targetName);
+		var target = $(this).attr('data-target');
+		var $container = $('#' + target);
+
 		$container.addRow();
 		updateUI();
 	});
@@ -173,7 +174,7 @@ $(document).ready(function() {
 	updateUI();
 
 	// $('.control-label').click(function() {
-	// 	$('input[name="hero_count"]:not(.hidden)').each(function() {
+	// 	$('input[data-output="hero_count"]:not(.hidden)').each(function() {
 	// 		console.log($(this))
 	// 	});
 	// });
