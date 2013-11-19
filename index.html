@@ -30,7 +30,7 @@
 		  <!-- Tab panes -->
 		  <div class="tab-content">
 
-			<div class="tab-pane active" id="home">
+			<div class="tab-pane" id="home">
 				<div role="form">
 					<div class="form-horizontal row">
 						<div class="col-sm-12">
@@ -40,6 +40,7 @@
 
 							<!-- Hero layouts -->
 					  	<div class="form-group js-form-group row hero-layouts">
+				  			<h4 class="col-sm-10 col-sm-offset-2">Heroes</h4>
 							 	<label class="col-sm-2 control-label">Hero Layouts</label>
 							 	<div class="col-sm-10">
 						 		 	<label class="radio-inline js-update-ui">
@@ -56,7 +57,7 @@
 				  	</div>
 
 				  	<!-- Hero setups -->
-				  	<div class="col-sm-12 hero-setup">
+				  	<div class="col-sm-12 hero-setup marg-btm">
 				  		<div class="row form-group js-form-group" data-output="hero-setup" data-hide-req="hero-hide">
 				  			<label class="col-sm-2 control-label">Hero Setup</label>
 				  			<div class="col-sm-10">
@@ -115,6 +116,9 @@
 
 				  	<!-- Show body nav -->
 				  	<div class="col-sm-12">
+				  		<div class="form-group">
+				  			<h4 class="col-sm-10 col-sm-offset-2">Navigation</h4>
+				  		</div>
 				  		<div class="row form-group js-form-group">
 			  				<label class="col-sm-2 control-label">Show Body Nav</label>
 			  				<div class="col-sm-10">
@@ -140,7 +144,7 @@
 				</div>
 			</div> <!-- #home -->
 
-			<div class="tab-pane" id="category">
+			<div class="tab-pane active" id="category">
 				<div role="form">
 					<div class="form-horizontal row">
 						<div class="col-sm-12">
@@ -150,16 +154,88 @@
 
 							<!-- Banner layouts -->
 					  	<div class="form-group js-form-group row banner-setup">
+					  		<h4 class="col-sm-10 col-sm-offset-2">Mobile Banners</h4>
 							 	<label class="col-sm-2 control-label">Banner Setup</label>
 							 	<div class="col-sm-10">
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="cat-banner-setup" data-output="banner_setup" value="image" checked> Image
+						 				<input type="radio" name="cat-banner-setup" data-output="banner_setup" value="image" data-req-name="cat-banner-image" checked> Image
 						 		 	</label>
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="cat-banner-setup" data-output="banner_setup" value="text"> Text
+						 				<input type="radio" name="cat-banner-setup" data-output="banner_setup" data-req-name="cat-banner-text" value="text"> Text
 						 		 	</label>
 							 	</div>
 					  	</div>
+
+					  	<div class="form-group js-form-group row" data-show-req="cat-banner-image">
+							 	<label class="col-sm-2 control-label">URL</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Custom URL" value="">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row" data-show-req="cat-banner-image">
+							 	<label class="col-sm-2 control-label">Image</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_img" type="text" class="form-control" placeholder="Custom Image">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
+							 	<label class="col-sm-2 control-label">URL</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Custom URL">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
+							 	<label class="col-sm-2 control-label">Title Text</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Title Text (Optional)">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
+							 	<label class="col-sm-2 control-label">Normal Text</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Normal Text (Optional)">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
+							 	<label class="col-sm-2 control-label">Disclaimer Text</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Disclaimer Text (Optional)">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
+							 	<label class="col-sm-2 control-label">Title Color</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Title Color (optional, defaults to brand colors)">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
+							 	<label class="col-sm-2 control-label">Text Color</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Text Color (optional, defaults to brand colors)">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
+							 	<label class="col-sm-2 control-label">Disclaimer Color</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Disclaimer Color (optional, defaults to brand colors)">
+							 	</div>
+					  	</div>
+
+					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
+							 	<label class="col-sm-2 control-label">Background color</label>
+							 	<div class="col-sm-8">
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Background Color (optional, defaults to brand colors)">
+							 	</div>
+					  	</div>
+
 				  	</div>
 			  	</div>
 
