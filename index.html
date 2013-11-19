@@ -19,6 +19,8 @@
 		 	<h1 class="text-primary text-center">MobiSets</h1>
 	  </div>
 	  <div class="container">
+
+	  	<!-- Tab nav -->
 		  <ul id="main-tabs" class="nav nav-tabs">
 			 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
 			 <li><a href="#category" data-toggle="tab">Category</a></li>
@@ -28,53 +30,64 @@
 		  <!-- Tab panes -->
 		  <div class="tab-content">
 
-			 <div class="tab-pane active" id="home">
+			<div class="tab-pane active" id="home">
 				<div role="form">
 					<div class="form-horizontal row">
 						<div class="col-sm-12">
 							<div class="row">
 								<h2 class="col-sm-10 col-sm-offset-2">Home Page Settings</h2>
 							</div>
-					  	<div id="hero-layouts" class="form-group row">
+
+							<!-- Hero layouts -->
+					  	<div class="form-group js-form-group row hero-layouts">
 							 	<label class="col-sm-2 control-label">Hero Layouts</label>
 							 	<div class="col-sm-10">
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="hero-layouts" value="tile" data-req-name="hero-tile" checked> Tile
+						 				<input type="radio" name="hero_layout" value="tile" data-req-name="hero-tile" checked> Tile
 						 		 	</label>
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="hero-layouts" value="single"  data-req-name="hero-single"> Single (Full Width)
+						 				<input type="radio" name="hero_layout" value="single"  data-req-name="hero-single"> Single (Full Width)
 						 		 	</label>
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="hero-layouts" value="hide" data-req-name="hero-hide"> Hide
+						 				<input type="radio" name="hero_layout" value="hide" data-req-name="hero-hide"> Hide
 						 		 	</label>
 							 	</div>
 					  	</div>
 				  	</div>
-				  	<div id="tile-setup" class="col-sm-12">
-				  		<div class="row form-group" name="hero-setup" data-hide-req="hero-hide">
+
+				  	<!-- Hero setups -->
+				  	<div class="col-sm-12 hero-setup">
+				  		<div class="row form-group js-form-group" name="hero-setup" data-hide-req="hero-hide">
 				  			<label class="col-sm-2 control-label">Hero Setup</label>
 				  			<div class="col-sm-10">
 								 	<label class="radio-inline js-update-ui">
-										<input type="radio" name="hero-layouts-setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
+										<input type="radio" name="hero_layout_setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
 								 	</label>
 								 	<label class="radio-inline js-update-ui">
-										<input type="radio" name="hero-layouts-setup" value="custom" data-req-name="hero-setup-custom"> Custom
+										<input type="radio" name="hero_layout_setup" value="custom" data-req-name="hero-setup-custom"> Custom
 								 	</label>
 								 </div>
 					  	</div>
+
+
+					  	<!-- Hero number select -->
 					  	<div class="row" data-show-req="hero-setup-auto">
 					  		<label class="col-sm-2 control-label" data-hide-req="hero-hide">How many heroes?</label>
 					  		<div class="col-sm-10">
-						  		<input type="number" name="hero-count" min="2" value="2" step="2" data-show-req="hero-tile">
-						  		<input class="hidden" type="number" name="hero-count" min="1" value="1" data-show-req="hero-single">
+						  		<input type="number" name="hero_count" min="2" value="2" step="2" data-show-req="hero-tile">
+						  		<input class="hidden" type="number" name="hero_count" min="1" value="1" data-show-req="hero-single">
 						  	</div>
 					  	</div>
+
+					  	<!-- Hero repeaters -->
 					  	<div name="hero-repeaters" class="clearfix marg-btm hidden" data-hide-req="hero-setup-auto">
 					  		<div class="row" data-hide-req="hero-hide">
 						  		<h4 class="col-sm-10 col-sm-offset-2">Add custom heroes</h4>
 						  	</div>
+
+						  	<!-- Tile heroes -->
 					  		<div class="hidden" data-show-req="hero-tile hero-setup-custom">
-				  	  		<div id="hero-tile" class="js-add-row" data-template="hero-tile-template"></div>
+				  	  		<div class="js-add-row hero-tile" data-template="hero-tile-template"></div>
   			  	  		<div class="row">
   			  	  			<div class="col-sm-8 col-sm-offset-2">
   			  	  				<p><em>Total heroes:</em> <span class="hero-count"></span></p>
@@ -84,8 +97,10 @@
   			  	  			</div>
   			  	  		</div>
 				  	  	</div>
+
+				  	  	<!-- Single heroes -->
 				  	  	<div class="hidden" data-show-req="hero-single hero-setup-custom">
-				  	  		<div id="hero-single" class="js-add-row" data-template="hero-single-template"></div>
+				  	  		<div class="js-add-row hero-single" data-template="hero-single-template"></div>
 				  	  		<div class="row">
 				  	  			<div class="col-sm-8 col-sm-offset-2">
 				  	  				<p><em>Total heroes:</em> <span class="hero-count"></span></p>
@@ -97,20 +112,24 @@
 				  	  	</div>
 					  	</div>
 				  	</div>
+
+				  	<!-- Show body nav -->
 				  	<div class="col-sm-12">
-				  		<div class="row form-group">
+				  		<div class="row form-group js-form-group">
 			  				<label class="col-sm-2 control-label">Show Body Nav</label>
 			  				<div class="col-sm-10">
 			  				 	<label class="radio-inline">
-			  						<input type="radio" name="home-body-nav" value="yes" checked> Yes
+			  						<input type="radio" name="home_body_nav" value="yes" checked> Yes
 			  				 	</label>
 			  				 	<label class="radio-inline">
-			  						<input type="radio" name="home-body-nav" value="no"> No
+			  						<input type="radio" name="home_body_nav" value="no"> No
 			  				 	</label>
 			  				</div>
 				  	  </div>
 				  	</div>
 					</div>
+
+					<!-- Get code for Home -->
 					<div class="row clearfix">
 						<div class="col-sm-8 col-sm-offset-2">
 							<h3>Hit the 'Get code' button and copy your code from below</h3>
@@ -119,11 +138,41 @@
 						</div>
 					</div>
 				</div>
-			 </div> <!-- #home -->
+			</div> <!-- #home -->
 
 			<div class="tab-pane" id="category">
-				<h1>Category Page Settings</h1>
-			</div>
+				<div role="form">
+					<div class="form-horizontal row">
+						<div class="col-sm-12">
+							<div class="row">
+								<h2 class="col-sm-10 col-sm-offset-2">Category Settings</h2>
+							</div>
+
+							<!-- Banner layouts -->
+					  	<div class="form-group js-form-group row banner-setup">
+							 	<label class="col-sm-2 control-label">Banner Setup</label>
+							 	<div class="col-sm-10">
+						 		 	<label class="radio-inline js-update-ui">
+						 				<input type="radio" name="cat-banner-setup" value="image" checked> Image
+						 		 	</label>
+						 		 	<label class="radio-inline js-update-ui">
+						 				<input type="radio" name="cat-banner-setup" value="text"> Text
+						 		 	</label>
+							 	</div>
+					  	</div>
+				  	</div>
+			  	</div>
+
+					<!-- Get code for Category -->
+					<div class="row clearfix">
+						<div class="col-sm-8 col-sm-offset-2">
+							<h3>Hit the 'Get code' button and copy your code from below</h3>
+							<textarea id="home-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
+							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get code</button>
+						</div>
+					</div>
+				</div>
+			</div> <!-- #category -->
 			
 			<div class="tab-pane" id="product">
 				<h1>Product Page Settings</h1>
@@ -134,11 +183,9 @@
 	  <!-- Handlebars templates -->
 	  <script id="code-output-template" type="text/x-handlebars-template">
 		  <div id="mobile_layout_settings"
-			  {{~#if heroLayout}} data-hero_layout="{{heroLayout}}"{{/if}}
-			  {{~#if heroLayoutSetup}} data-hero_layout_setup="{{heroLayoutSetup}}"{{/if}}
+		  	{{~#if options}}{{~#each options}} data-{{name}}="{{val}}"{{/each}}{{/if}}
 			  {{~#if heroes}}{{~#each heroes}} data-hero_src_{{math @index 1}}="{{src}}" data-hero_title_{{math @index 1}}="{{title}}" data-hero_link_{{math @index 1}}="{{link}}"{{/each}}{{/if}}
-			  {{~#if heroCount}} data-hero_count="{{heroCount}}"{{/if}}
-			  {{~#if bodyNav}} data-body_nav="{{bodyNav}}"{{/if}}></div>
+			  {{~#if heroCount}} data-hero_count="{{heroCount}}"{{/if}}></div>
 		</script>
 		<script id="hero-tile-template" type="text/x-handlebars-template">
 			<div class="row">

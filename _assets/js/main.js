@@ -29,37 +29,52 @@ function updateHeroCount(count, $pane) {
 	$(".hero-count", $pane).not('.hidden .hero-count, .hidden.hero-count').text(count);
 }
 
+jQuery.fn.isHidden = function() {
+	return $(this).closest('.hidden').length;
+}
+
 jQuery.fn.outputCode = function() {
 	var $pane = $(this),
 			$outputArea = $pane.find(".code-output"),
 			context = {},
 			source   = $("#code-output-template").html(),
 			outputTemplate = Handlebars.compile(source),
+			dataOptions = [],
 			dataHeroes = [];
 
-	context.heroLayout = $pane.find("input[name='hero-layouts']:checked").val();
-	context.heroLayoutSetup = $pane.find("input[name='hero-layouts-setup']:checked").val();
+	// Properties other than heroes
+	$(".js-form-group", $pane).find('input').not('input:not(:checked)').each(function() {
+		if (! $(this).isHidden()) {
+			var opts = {};
+			opts.name = $(this).attr('name');
+			opts.val = $(this).val();
+
+			dataOptions.push(opts);
+		}		
+	});
+	context.options = dataOptions;
+	console.log(context.options);
 	
 	// hero properties
-	$(".hero", $pane).not('.hidden .hero, .hidden.hero').each(function() {
-		var hero = {};
-		hero.src = $(this).find('[name="hero-image"]').val();
-		hero.title = $(this).find('[name="hero-title"]').val();
-		hero.link = $(this).find('[name="hero-link"]').val();
+	$(".hero", $pane).each(function() {
+		if (! $(this).isHidden()) {
+			var hero = {};
+			hero.src = $(this).find('[name="hero-image"]').val();
+			hero.title = $(this).find('[name="hero-title"]').val();
+			hero.link = $(this).find('[name="hero-link"]').val();
 
-		dataHeroes.push(hero);		
+			dataHeroes.push(hero);
+		}		
 	});
 	context.heroes = dataHeroes;
 	
 	// hero count
-	if (context.heroLayoutSetup === "auto") {
-		context.heroCount = $('input[name="hero-count"]').not('.hidden input[name="hero-count"], input[name="hero-count"].hidden').val();
-	} else {
+	if ($('input[name="hero_count"]', $pane).isHidden()) {
 		context.heroCount = dataHeroes.length;
+		console.log('count is hidden');
+		console.log(dataHeroes.length);
 	}
 	
-	// body nav
-	context.bodyNav = $pane.find("input[name='home-body-nav']:checked").val();
 	$outputArea.html($.trim(outputTemplate(context)));
 }
 
@@ -156,5 +171,11 @@ $(document).ready(function() {
 	});
 
 	updateUI();
+
+	// $('.control-label').click(function() {
+	// 	$('input[name="hero_count"]:not(.hidden)').each(function() {
+	// 		console.log($(this))
+	// 	});
+	// });
 
 });
