@@ -385,8 +385,8 @@
 	  <script id="code-output-template" type="text/x-handlebars-template">
 		  <div id="mobile_layout_settings"
 		  	{{~#if options}}{{~#each options}} data-{{name}}="{{val}}"{{/each}}{{/if}}
-			  {{~#if heroes}}{{~#each heroes}} data-hero_src_{{math @index 1}}="{{src}}" data-hero_title_{{math @index 1}}="{{title}}" data-hero_link_{{math @index 1}}="{{link}}"{{/each}}{{/if}}
-			  {{~#if heroCount}} data-hero_count="{{heroCount}}"{{/if}}></div>
+			  {{~#if heroCount}} data-hero_count="{{heroCount}}"{{/if}}>
+			  {{~#if heroes}}{{~#each heroes}}<div class="_custom_hero" data-hero_src="{{src}}" data-hero_title="{{title}}" data-hero_link="{{link}}"></div>{{/each}}{{/if}}</div>
 		</script>
 		<script id="hero-tile-template" type="text/x-handlebars-template">
 			<div class="row">
