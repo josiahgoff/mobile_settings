@@ -8,10 +8,26 @@ $row_baseline: 25px;
 	margin-top: $row_baseline;
 }
 
+.clickable {
+	cursor: pointer;
+}
+
 p {
 	margin-bottom: 1.5em;
 }
 
+.well h4 {
+	margin-bottom: 1.3em;
+}
+
+input[type="text"] {
+	margin-bottom: $row_baseline/2;
+}
+
 input[type="number"] {
 	width: 50px;
+}
+
+textarea.code-output {
+	height: 200px;
 }

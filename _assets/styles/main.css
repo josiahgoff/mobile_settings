@@ -7,9 +7,25 @@
   margin-top: 25px; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000311}}
+.clickable {
+  cursor: pointer; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000315}}
 p {
   margin-bottom: 1.5em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000319}}
+.well h4 {
+  margin-bottom: 1.3em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000323}}
+input[type="text"] {
+  margin-bottom: 12.5px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000327}}
 input[type="number"] {
   width: 50px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000331}}
+textarea.code-output {
+  height: 200px; }

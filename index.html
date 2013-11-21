@@ -91,7 +91,7 @@
   			  	  				<p><em>Total heroes:</em> <span class="hero-count"></span></p>
   			  	  			</div>
   		  	  				<div class="col-sm-2">
-  			  	  				<button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" data-target="home-hero-tile">Add row</button>
+  			  	  				<button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" data-target="home-hero-tile"><span class="glyphicon glyphicon-plus"></span> Add Row</button>
   			  	  			</div>
   			  	  		</div>
 				  	  	</div>
@@ -120,12 +120,16 @@
 				  	</div>
 					</div>
 
-					<!-- Get code for Home -->
+					<!-- Get Code for Home -->
 					<div class="row clearfix">
 						<div class="col-sm-8 col-sm-offset-2">
-							<h4>Press 'Get code' to output your code for the Home Page</h4>
-							<textarea id="home-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
-							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get code</button>
+							<h4 class="text-center">Press 'Get Code' to output your code for the Home Page</h4>
+							<textarea id="home-output" class="form-control code-output marg-btm"></textarea>
+							<div class="row">
+								<div class="col-sm-6 col-sm-offset-3">
+									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block">Get Code</button>
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -133,7 +137,7 @@
 					<div class="row marg-top">
 						<div class="col-sm-8 col-sm-offset-2">
 							<div class="well marg-top text-info form-group">
-								<h4 class="text-center">More options</h4>
+								<h4 class="text-center"><span class="glyphicon glyphicon-cog"></span> More Options</h4>
 								<h5>CTA Buttons</h5>
 								<p>Adding a class of <strong>cta_button</strong> to any link on the homepage will create a button below the hero (ala FNM&rsquo;s blue buttons)</p>
 
@@ -240,12 +244,12 @@
 				  	</div>
 			  	</div>
 
-					<!-- Get code for Category -->
+					<!-- Get Code for Category -->
 					<div class="row clearfix">
 						<div class="col-sm-8 col-sm-offset-2">
-							<h4>Press 'Get code' to output your code for the Category Page</h4>
+							<h4>Press 'Get Code' to output your code for the Category Page</h4>
 							<textarea id="cat-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
-							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get code</button>
+							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get Code</button>
 						</div>
 					</div>
 				</div>
@@ -368,12 +372,12 @@
 				  	</div>
 			  	</div>
 
-					<!-- Get code for Product -->
+					<!-- Get Code for Product -->
 					<div class="row clearfix">
 						<div class="col-sm-8 col-sm-offset-2">
-							<h4>Press 'Get code' to output your code for the Product Page</h4>
+							<h4>Press 'Get Code' to output your code for the Product Page</h4>
 							<textarea id="product-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
-							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get code</button>
+							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get Code</button>
 						</div>
 					</div>
 				</div>
@@ -390,8 +394,8 @@
 		</script>
 		<script id="hero-tile-template" type="text/x-handlebars-template">
 			<div class="row">
-				<div class="col-sm-2">
-					<button type="button" class="btn btn-danger btn-xs pull-right js-delete-row">&times;</button>
+				<div class="col-sm-2 text-right text-danger">
+					<span class="glyphicon glyphicon-remove js-delete-row clickable"></span>
 				</div>
 				<div class="col-sm-5 hero">
 		    	<label>Left Image</label>
@@ -413,7 +417,7 @@
 		</script>
 		<script id="hero-single-template" type="text/x-handlebars-template">
 			<div class="row">
-				<div class="hero col-sm-10 col-sm-offset-2">
+				<div class="hero col-sm-8 col-sm-offset-2">
 		    	<label>Image</label>
 		    	<input data-output="hero-image" type="text" class="form-control" placeholder="Link to image">
 		    	<label>Link</label>
