@@ -19,9 +19,27 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
     }[operator];
 });
 
+
+function escapeHtml(string) {
+	var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+  };
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
+}
+
+function getHeroCount() {
+	return $(".hero", '.tab-pane.active').not('.hidden .hero, .hidden.hero').length;
+}
+
 function updateHeroCount() {
-	var count = $(".hero", '.tab-pane.active').not('.hidden .hero, .hidden.hero').length;
-	$(".hero-count", '.tab-pane.active').not('.hidden .hero-count, .hidden.hero-count').text(count);
+	$(".hero-count", '.tab-pane.active').not('.hidden .hero-count, .hidden.hero-count').text(getHeroCount());
 }
 
 jQuery.fn.isHidden = function() {
@@ -41,8 +59,9 @@ jQuery.fn.outputCode = function() {
 	$($pane).find('input:not(.hidden)').not('input[type="radio"]:not(:checked), input[type="radio"]:not(:checked), input[data-output="hero_count"], .hero input').each(function() {
 		if (! $(this).isHidden()) {
 			var opts = {};
+			
 			opts.name = $(this).attr('data-output');
-			opts.val = $(this).val();
+			opts.val = escapeHtml($(this).val());
 
 			dataOptions.push(opts);
 		}
@@ -100,6 +119,7 @@ function updateUI() {
 			$(this).removeClass('hidden');
 		}
 	});
+
 	$("[data-hide-req]").each(function() {
 		var active = 0;
 		var reqs = $(this).attr("data-hide-req").split(/\s+/);
@@ -116,8 +136,14 @@ function updateUI() {
 			$(this).addClass('hidden');
 		} 
 	});
+
 	updateHeroCount();
 	
+	if(getHeroCount() > 2) {
+		$('.js-delete-row').show();
+	} else {
+		$('.js-delete-row').hide();
+	}
 }
 
 $(document).ready(function() {

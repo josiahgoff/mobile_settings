@@ -21,7 +21,7 @@
 	  <div class="container">
 
 	  	<!-- Tab nav -->
-		  <ul id="main-tabs" class="nav nav-tabs">
+		  <ul id="main-tabs" class="nav nav-tabs nav-justified">
 			 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
 			 <li><a href="#category" data-toggle="tab">Category</a></li>
 			 <li><a href="#product" data-toggle="tab">Product</a></li>
@@ -88,7 +88,7 @@
 				  	  		<div id="home-hero-tile" class="js-add-row hero-tile" data-template="hero-tile-template"></div>
   			  	  		<div class="row">
   			  	  			<div class="col-sm-8 col-sm-offset-2">
-  			  	  				<p><em>Total heroes:</em> <span class="hero-count"></span></p>
+  			  	  				<p class="text-muted">Custom Heroes: <span class="hero-count badge"></span></p>
   			  	  			</div>
   		  	  				<div class="col-sm-2">
   			  	  				<button type="button" class="btn btn-primary btn-sm btn-info js-add-row-trigger pull-right" data-target="home-hero-tile"><span class="glyphicon glyphicon-plus"></span> Add Row</button>
@@ -136,16 +136,20 @@
 					<!-- CTA Buttons & Links Info -->
 					<div class="row marg-top">
 						<div class="col-sm-8 col-sm-offset-2">
-							<div class="well marg-top text-info form-group">
-								<h4 class="text-center"><span class="glyphicon glyphicon-cog"></span> More Options</h4>
-								<h5>CTA Buttons</h5>
-								<p>Adding a class of <strong>cta_button</strong> to any link on the homepage will create a button below the hero (ala FNM&rsquo;s blue buttons)</p>
+							<div class="panel panel-info marg-top form-group">
+								<div class="panel-heading">
+									<h4><span class="glyphicon glyphicon-cog"></span> More Options</h4>
+								</div>
+								<div class="panel-body">
+									<h5>CTA Buttons</h5>
+									<p>Adding a class of <strong>cta_button</strong> to any link on the homepage will create a button below the hero (ala FNM&rsquo;s blue buttons)</p>
 
-								<h5>CTA Links</h5>
-								<p>Adding a class of <strong>cta_link</strong> to any link on the homepage will create a link below CTA Buttons and/or Hero (ala left nav on Cheryls)</p>
+									<h5>CTA Links</h5>
+									<p>Adding a class of <strong>cta_link</strong> to any link on the homepage will create a link below CTA Buttons and/or Hero (ala left nav on Cheryls)</p>
 
-								<h5>Hide Nav Links</h5>
-								<p>Add a class of <strong>hide_from_mobile</strong></p>
+									<h5>Hide Nav Links</h5>
+									<p>Add a class of <strong>hide_from_mobile</strong></p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -215,29 +219,33 @@
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
 							 	<label class="col-sm-2 control-label">Title Color</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Title Color (optional, defaults to brand colors)">
+							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
+							 		<span class="input-group-addon">#</span>
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
 							 	<label class="col-sm-2 control-label">Text Color</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Text Color (optional, defaults to brand colors)">
+							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
+							 		<span class="input-group-addon">#</span>
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
 							 	<label class="col-sm-2 control-label">Disclaimer Color</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Disclaimer Color (optional, defaults to brand colors)">
+							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
+							 		<span class="input-group-addon">#</span>
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
 							 	<label class="col-sm-2 control-label">Background color</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Background Color (optional, defaults to brand colors)">
+							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
+							 		<span class="input-group-addon">#</span>
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
@@ -247,9 +255,13 @@
 					<!-- Get Code for Category -->
 					<div class="row clearfix">
 						<div class="col-sm-8 col-sm-offset-2">
-							<h4>Press 'Get Code' to output your code for the Category Page</h4>
+							<h4 class="text-center">Press 'Get Code' to output your code for the Category Page</h4>
 							<textarea id="cat-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
-							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get Code</button>
+							<div class="row">
+								<div class="col-sm-6 col-sm-offset-3">
+									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block">Get Code</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -318,29 +330,33 @@
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
 							 	<label class="col-sm-2 control-label">Title Color</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Title Color (optional, defaults to brand colors)">
+							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
+							 		<span class="input-group-addon">#</span>
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
 							 	<label class="col-sm-2 control-label">Text Color</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Text Color (optional, defaults to brand colors)">
+							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
+							 		<span class="input-group-addon">#</span>
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
 							 	<label class="col-sm-2 control-label">Disclaimer Color</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Disclaimer Color (optional, defaults to brand colors)">
+							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
+							 		<span class="input-group-addon">#</span>
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
 							 	<label class="col-sm-2 control-label">Background color</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Background Color (optional, defaults to brand colors)">
+							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
+							 		<span class="input-group-addon">#</span>
+						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
@@ -375,9 +391,13 @@
 					<!-- Get Code for Product -->
 					<div class="row clearfix">
 						<div class="col-sm-8 col-sm-offset-2">
-							<h4>Press 'Get Code' to output your code for the Product Page</h4>
+							<h4 class="text-center">Press 'Get Code' to output your code for the Product Page</h4>
 							<textarea id="product-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
-							<button type="button" class="btn btn-primary btn-lg js-convert-trigger">Get Code</button>
+							<div class="row">
+								<div class="col-sm-6 col-sm-offset-3">
+									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block">Get Code</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
