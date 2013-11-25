@@ -12,20 +12,38 @@
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000315}}
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 2em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000319}}
-.well h4 {
-  margin-bottom: 1.3em; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000323}}
 input[type="text"] {
   margin-bottom: 12.5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000323}}
 input[type="number"] {
   width: 50px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000327}}
 textarea.code-output {
   height: 200px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000331}}
+.page-header {
+  background: #428bca;
+  margin-top: 0;
+  height: 100px;
+  line-height: 100px;
+  margin-bottom: 50px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000337}}
+  .page-header h1 {
+    color: #FFF;
+    line-height: 100px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000343}}
+    .page-header h1:hover {
+      color: #FFF; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000349}}
+.hero-row {
+  display: none; }

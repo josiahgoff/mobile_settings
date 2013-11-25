@@ -98,6 +98,9 @@ jQuery.fn.addRow = function() {
 			source   = $("#" + templateName).html(),
 			outputTemplate = Handlebars.compile(source);
 	$container.append(outputTemplate(context));
+	$container.find('.row:last-child').slideDown('400', function() {
+		updateUI();
+	});
 }
 
 function updateUI() {
@@ -161,8 +164,10 @@ $(document).ready(function() {
 
 	// Remove selected row
 	$('[data-output="hero-repeaters"]').delegate( '.js-delete-row', 'click', function(e) {
-		$(this).closest('.row').remove();
-		updateUI();
+		$(this).closest('.row').slideUp(400, function() {
+			$(this).remove();
+			updateUI();
+		});
 	});
 	
 	// Listen add row trigger
@@ -171,7 +176,6 @@ $(document).ready(function() {
 		var $container = $('#' + target);
 
 		$container.addRow();
-		updateUI();
 	});
 
 	// Listen for convert code trigger
