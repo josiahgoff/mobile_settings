@@ -110,10 +110,10 @@
 			  				<label class="col-sm-2 control-label">Show Body Nav</label>
 			  				<div class="col-sm-10">
 			  				 	<label class="radio-inline">
-			  						<input type="radio" data-output="home_body_nav" value="yes" checked> Yes
+			  						<input type="radio" name="home-body-nav" data-output="home_body_nav" value="yes" checked> Yes
 			  				 	</label>
 			  				 	<label class="radio-inline">
-			  						<input type="radio" data-output="home_body_nav" value="no"> No
+			  						<input type="radio" name="home-body-nav" data-output="home_body_nav" value="no"> No
 			  				 	</label>
 			  				</div>
 				  	  </div>
@@ -199,21 +199,21 @@
 					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
 							 	<label class="col-sm-2 control-label">Title</label>
 							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Title Text (Optional)">
+						 		 	<input data-output="banner_title" type="text" class="form-control" placeholder="Title Text (Optional)">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
 							 	<label class="col-sm-2 control-label">Body</label>
 							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Normal Text (Optional)">
+						 		 	<input data-output="banner_text" type="text" class="form-control" placeholder="Normal Text (Optional)">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="cat-banner-text">
 							 	<label class="col-sm-2 control-label">Disclaimer</label>
 							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Disclaimer Text (Optional)">
+						 		 	<input data-output="banner_disclaimer" type="text" class="form-control" placeholder="Disclaimer Text (Optional)">
 							 	</div>
 					  	</div>
 
@@ -221,7 +221,7 @@
 							 	<label class="col-sm-2 control-label">Title Color</label>
 							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
 							 		<span class="input-group-addon">#</span>
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
+						 		 	<input data-output="banner_title_color" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
@@ -229,7 +229,7 @@
 							 	<label class="col-sm-2 control-label">Body Color</label>
 							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
 							 		<span class="input-group-addon">#</span>
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
+						 		 	<input data-output="banner_text_color" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
@@ -237,7 +237,7 @@
 							 	<label class="col-sm-2 control-label">Disclaimer Color</label>
 							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
 							 		<span class="input-group-addon">#</span>
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
+						 		 	<input data-output="banner_disclaimer_color" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
@@ -245,7 +245,7 @@
 							 	<label class="col-sm-2 control-label">Background color</label>
 							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
 							 		<span class="input-group-addon">#</span>
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
+						 		 	<input data-output="banner_bg_color" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
@@ -277,8 +277,11 @@
 					  		<h3 class="col-sm-10 col-sm-offset-2">Product Banners</h3>
 							 	<label class="col-sm-2 control-label">Banner Setup</label>
 							 	<div class="col-sm-10">
+							 		<label class="radio-inline js-update-ui">
+						 				<input type="radio" name="prod-banner-setup" data-output="banner_setup" value="none" data-req-name="prod-banner-none" checked> None
+						 		 	</label>
 						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="prod-banner-setup" data-output="banner_setup" value="image" data-req-name="prod-banner-image" checked> Image
+						 				<input type="radio" name="prod-banner-setup" data-output="banner_setup" value="image" data-req-name="prod-banner-image"> Image
 						 		 	</label>
 						 		 	<label class="radio-inline js-update-ui">
 						 				<input type="radio" name="prod-banner-setup" data-output="banner_setup" data-req-name="prod-banner-text" value="text"> Text
@@ -300,31 +303,31 @@
 							 	</div>
 					  	</div>
 
-					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
-							 	<label class="col-sm-2 control-label">URL</label>
-							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Custom URL (Optional)">
-							 	</div>
-					  	</div>
+			  	  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
+			  			 	<label class="col-sm-2 control-label">URL</label>
+			  			 	<div class="col-sm-8">
+			  		 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Custom URL (Optional)">
+			  			 	</div>
+			  	  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
 							 	<label class="col-sm-2 control-label">Title</label>
 							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Title Text (Optional)">
+						 		 	<input data-output="banner_title" type="text" class="form-control" placeholder="Title Text (Optional)">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
 							 	<label class="col-sm-2 control-label">Body</label>
 							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Normal Text (Optional)">
+						 		 	<input data-output="banner_text" type="text" class="form-control" placeholder="Normal Text (Optional)">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
 							 	<label class="col-sm-2 control-label">Disclaimer</label>
 							 	<div class="col-sm-8">
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Disclaimer Text (Optional)">
+						 		 	<input data-output="banner_disclaimer" type="text" class="form-control" placeholder="Disclaimer Text (Optional)">
 							 	</div>
 					  	</div>
 
@@ -332,15 +335,15 @@
 							 	<label class="col-sm-2 control-label">Title Color</label>
 							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
 							 		<span class="input-group-addon">#</span>
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
+						 		 	<input data-output="banner_title_color" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
 					  	<div class="form-group js-form-group row hidden" data-show-req="prod-banner-text">
-							 	<label class="col-sm-2 control-label">Text Color</label>
+							 	<label class="col-sm-2 control-label">Body Color</label>
 							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
 							 		<span class="input-group-addon">#</span>
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
+						 		 	<input data-output="banner_text_color" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
@@ -348,7 +351,7 @@
 							 	<label class="col-sm-2 control-label">Disclaimer Color</label>
 							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
 							 		<span class="input-group-addon">#</span>
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
+						 		 	<input data-output="banner_disclaimer_color" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
@@ -356,7 +359,7 @@
 							 	<label class="col-sm-2 control-label">Background color</label>
 							 	<div class="col-sm-5 col-md-4 col-lg-3 input-group">
 							 		<span class="input-group-addon">#</span>
-						 		 	<input data-output="banner_url" type="text" class="form-control" placeholder="Leave blank for brand colors">
+						 		 	<input data-output="banner_bg_color" type="text" class="form-control" placeholder="Leave blank for brand colors">
 							 	</div>
 					  	</div>
 
