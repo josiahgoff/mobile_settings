@@ -46,11 +46,11 @@ jQuery.fn.isHidden = function() {
 	return $(this).closest('.hidden').length;
 }
 
-jQuery.fn.outputCode = function() {
+jQuery.fn.outputCode = function(template) {
 	var $pane = $(this),
 			$outputArea = $pane.find(".code-output"),
 			context = {},
-			source   = $("#code-output-template").html(),
+			source   = $("#" + template).html(),
 			outputTemplate = Handlebars.compile(source),
 			dataOptions = [],
 			dataHeroes = [];
@@ -180,8 +180,9 @@ $(document).ready(function() {
 
 	// Listen for convert code trigger
 	$('.js-convert-trigger').click(function(e) {
-		var $activePane = $(this).closest(".tab-pane");
-		$activePane.outputCode();
+		var $activePane = $(this).closest('.tab-pane'),
+				outputTemplate = $(this).attr('data-output-template');
+		$activePane.outputCode(outputTemplate);
 	});
 
 	// Listen for UI update triggers

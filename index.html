@@ -25,6 +25,7 @@
 			 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
 			 <li><a href="#category" data-toggle="tab">Category</a></li>
 			 <li><a href="#product" data-toggle="tab">Product</a></li>
+			 <li><a href="#redirects" data-toggle="tab">Redirects</a></li>
 		  </ul>
 
 		  <!-- Tab panes -->
@@ -127,7 +128,7 @@
 							<textarea id="home-output" class="form-control code-output marg-btm"></textarea>
 							<div class="row">
 								<div class="col-sm-6 col-sm-offset-3">
-									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block">Get Code</button>
+									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block" data-output-template="mobile-layout-settings-template">Get Code</button>
 								</div>
 							</div>
 						</div>
@@ -153,6 +154,7 @@
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div> <!-- #home -->
 
@@ -259,7 +261,7 @@
 							<textarea id="cat-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
 							<div class="row">
 								<div class="col-sm-6 col-sm-offset-3">
-									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block">Get Code</button>
+									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block" data-output-template="mobile-layout-settings-template">Get Code</button>
 								</div>
 							</div>
 						</div>
@@ -410,22 +412,78 @@
 							<textarea id="product-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
 							<div class="row">
 								<div class="col-sm-6 col-sm-offset-3">
-									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block">Get Code</button>
+									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block" data-output-template="mobile-layout-settings-template">Get Code</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> <!-- #product -->
+
+			<div class="tab-pane" id="redirects">
+				<div role="form">
+					<div class="form-horizontal row">
+						<div class="col-sm-12">
+
+							<!-- Banner layouts -->
+					  	<div class="form-group js-form-group row marg-top">
+					  		<h3 class="col-sm-10 col-sm-offset-2">Mobile Redirects</h3>
+					  			<div class="marg-top">
+	 								 	<label class="col-sm-2 control-label">Redirect to</label>
+	 								 	<div class="col-sm-8 input-group">
+	 								 		<span class="input-group-addon">http://your-website.com/</span>
+	 							 		 	<input data-output="path" type="text" class="form-control" placeholder="path-of-the-page-youre-redirecting-to">
+	 								 	</div>
+ 								 </div>
+					  	</div>
+
+				  	</div>
+			  	</div>
+
+					<!-- Get Code for Redirects -->
+					<div class="row clearfix">
+						<div class="col-sm-8 col-sm-offset-2">
+							<h4 class="text-center">Press 'Get Code' to output your code for the Redirect</h4>
+							<textarea id="cat-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
+							<div class="row">
+								<div class="col-sm-6 col-sm-offset-3">
+									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block" data-output-template="redirects-template">Get Code</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- CTA Buttons & Links Info -->
+					<div class="row marg-top">
+						<div class="col-sm-8 col-sm-offset-2">
+							<div class="panel panel-info marg-top form-group">
+								<div class="panel-heading">
+									<h4 class="text-center"><span class="glyphicon glyphicon-info-sign"></span> Instructions</h4>
+								</div>
+								<div class="panel-body text-info">
+									<p class="marg-top">Place the outputted code above anywhere on the page that you want to redirect from.</p>
+
+									<p><em><strong>Note:</strong> These redirects will also work on FD1</em></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div> <!-- #redirects -->
+
 		</div>
 	  <div class="page-footer" style="height: 60px"></div>
 
 	  <!-- Handlebars templates -->
-	  <script id="code-output-template" type="text/x-handlebars-template">
+	  <script id="mobile-layout-settings-template" type="text/x-handlebars-template">
 		  <div id="mobile_layout_settings"
 		  	{{~#if options}}{{~#each options}} data-{{name}}="{{val}}"{{/each}}{{/if}}
 			  {{~#if heroCount}} data-hero_count="{{heroCount}}"{{/if}}>
 			  {{~#if heroes}}{{~#each heroes}}<div class="_custom_hero" data-hero_src="{{src}}" data-hero_title="{{title}}" data-hero_link="{{link}}"></div>{{/each}}{{/if}}</div>
+		</script>
+		<script id="redirects-template" type="text/x-handlebars-template">
+		  <div id="mobile_redirect" {{~#if options}}{{~#each options}} data-{{name}}="{{val}}"{{/each}}{{/if}}></div>
 		</script>
 		<script id="hero-tile-template" type="text/x-handlebars-template">
 			<div class="row hero-row">
