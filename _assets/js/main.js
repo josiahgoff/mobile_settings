@@ -88,7 +88,7 @@ jQuery.fn.outputCode = function(template) {
 		context.heroCount = $('input[data-output="hero_count"]:not(.hidden)', $pane).val();
 	}
 	
-	$outputArea.html($.trim(outputTemplate(context)));
+	$outputArea.val($.trim(outputTemplate(context)));
 }
 
 jQuery.fn.addRow = function() {
