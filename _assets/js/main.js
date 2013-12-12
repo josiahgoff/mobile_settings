@@ -94,8 +94,8 @@ jQuery.fn.outputCode = function(template) {
 jQuery.fn.addRow = function() {
 	var $container = $(this),
 			context = {},
-			templateName = $container.attr("data-template"),
-			source   = $("#" + templateName).html(),
+			templateName = $container.attr('data-template'),
+			source   = $('#' + templateName).html(),
 			outputTemplate = Handlebars.compile(source);
 	$container.append(outputTemplate(context));
 	$container.find('.row:last-child').slideDown('400', function() {
@@ -103,12 +103,27 @@ jQuery.fn.addRow = function() {
 	});
 }
 
+jQuery.fn.previewImg = function() {
+	var $target = $(this).closest('.hero').prev('.js-hero-img-preview').find('img'),
+			src = $.trim($(this).val());
+
+	if (src.length > 0) {
+		$target.parent().removeClass('img-empty');
+		$target.attr('src', src);
+	} else {
+		$target.parent().addClass('img-empty');
+		$target.attr('src', '');
+	}
+
+	return this;
+}
+
 function updateUI() {
 	var $pane = $('.tab-pane.active');
 
-	$("[data-show-req]").each(function() {
+	$('[data-show-req]').each(function() {
 		var active = 0;
-		var reqs = $(this).attr("data-show-req").split(/\s+/);
+		var reqs = $(this).attr('data-show-req').split(/\s+/);
 
 		for (var i = 0; i < reqs.length; i++) {
 		  if ( ! $('[data-req-name="' + reqs[i] + '"]').is(':checked')) {
@@ -162,12 +177,20 @@ $(document).ready(function() {
 		$(this).addRow();
 	});
 
-	// Remove selected row
-	$('[data-output="hero-repeaters"]').delegate( '.js-delete-row', 'click', function(e) {
+	// Hero repeater delegates
+	$('[data-output="hero-repeaters"]').delegate('.js-delete-row', 'click', function(e) {
+
+		// Remove selected row
 		$(this).closest('.row').slideUp(400, function() {
 			$(this).remove();
 			updateUI();
 		});
+
+	}).delegate('.js-hero-img-input', 'keyup', function(e) {
+
+		// Auto update hero preview img
+		$(this).previewImg();
+
 	});
 	
 	// Listen add row trigger
@@ -184,6 +207,8 @@ $(document).ready(function() {
 				outputTemplate = $(this).attr('data-output-template');
 		$activePane.outputCode(outputTemplate);
 	});
+
+	
 
 	// Listen for UI update triggers
 	$('.js-update-ui').click(function() {

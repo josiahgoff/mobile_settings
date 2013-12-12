@@ -28,6 +28,15 @@ textarea.code-output {
 	height: 200px;
 }
 
+img {
+	max-width: 100%;
+}
+
+.thumbnail.img-empty {
+	height: 120px;
+	background: #EAEAEA;
+}
+
 .page-header {
 	background: #428bca;
 	margin-top: 0;
@@ -48,4 +57,9 @@ textarea.code-output {
 
 .hero-row {
 	display:none;
+}
+
+.delete-row {
+	height:20px;
+	margin-bottom: 5px;
 }
