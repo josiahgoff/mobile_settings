@@ -68,14 +68,17 @@ img {
     .hero-preview .hero-img-preview.img-empty {
       height: 155px;
       background: #EAEAEA; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000371}}
+    .hero-preview .hero-img-preview.single-img {
+      width: 300px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000375}}
   .hero-preview .hero-text-preview {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 150px;
     padding: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/mobisets\/_assets\/styles\/scss\/main\.scss}line{font-family:\0000381}}
     .hero-preview .hero-text-preview p {
       width: 100%;
       text-align: center;
