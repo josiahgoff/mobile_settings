@@ -103,8 +103,8 @@ jQuery.fn.addRow = function() {
 	});
 }
 
-jQuery.fn.previewImg = function() {
-	var $target = $(this).closest('.hero').prev('.js-hero-img-preview').find('img'),
+jQuery.fn.updateHeroImgPreview = function() {
+	var $target = $(this).closest('.hero').find('.js-hero-preview img'),
 			src = $.trim($(this).val());
 
 	if (src.length > 0) {
@@ -113,6 +113,19 @@ jQuery.fn.previewImg = function() {
 	} else {
 		$target.parent().addClass('img-empty');
 		$target.attr('src', '');
+	}
+
+	return this;
+}
+
+jQuery.fn.updateHeroTextPreview = function() {
+	var $target = $(this).closest('.hero').find('.js-hero-preview .hero-text-preview p'),
+			src = $(this).val();
+
+	if (src.length > 0) {
+		$target.text(src);
+	} else {
+		$target.text('Hero Title');
 	}
 
 	return this;
@@ -189,7 +202,12 @@ $(document).ready(function() {
 	}).delegate('.js-hero-img-input', 'keyup', function(e) {
 
 		// Auto update hero preview img
-		$(this).previewImg();
+		$(this).updateHeroImgPreview();
+
+	}).delegate('.js-hero-text-input', 'keyup', function(e) {
+
+		// Auto update hero preview text
+		$(this).updateHeroTextPreview();
 
 	});
 	

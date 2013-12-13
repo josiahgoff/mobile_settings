@@ -25,8 +25,8 @@
 			 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
 			 <li><a href="#category" data-toggle="tab">Category</a></li>
 			 <li><a href="#product" data-toggle="tab">Product</a></li>
+			 <li><a href="#cart" data-toggle="tab">Cart</a></li>
 			 <li><a href="#redirects" data-toggle="tab">Redirects</a></li>
-			 <li><a href="#cart_pages" data-toggle="tab">Cart Pages</a></li>
 		  </ul>
 
 		  <!-- Tab panes -->
@@ -61,10 +61,10 @@
 				  			<label class="col-sm-2 control-label">Hero Setup</label>
 				  			<div class="col-sm-10">
 								 	<label class="radio-inline js-update-ui">
-										<input type="radio" name="home-hero-layout-setup" data-output="hero_layout_setup" value="auto" data-req-name="hero-setup-auto"> Auto
+										<input type="radio" name="home-hero-layout-setup" data-output="hero_layout_setup" value="auto" data-req-name="hero-setup-auto" checked> Auto
 								 	</label>
 								 	<label class="radio-inline js-update-ui">
-										<input type="radio" name="home-hero-layout-setup" data-output="hero_layout_setup" value="custom" data-req-name="hero-setup-custom" checked> Custom
+										<input type="radio" name="home-hero-layout-setup" data-output="hero_layout_setup" value="custom" data-req-name="hero-setup-custom"> Custom
 								 	</label>
 								 </div>
 					  	</div>
@@ -89,7 +89,7 @@
 					  		<div class="hidden" data-show-req="hero-tile hero-setup-custom">
 				  	  		<div id="home-hero-tile" class="js-add-row hero-tile" data-template="hero-tile-template"></div>
   			  	  		<div class="row">
-  			  	  			<div class="col-sm-8 col-sm-offset-2">
+  			  	  			<div class="col-sm-6 col-sm-offset-2">
   			  	  				<p class="text-muted">Custom Heroes: <span class="hero-count badge"></span></p>
   			  	  			</div>
   		  	  				<div class="col-sm-2">
@@ -421,6 +421,44 @@
 				</div>
 			</div> <!-- #product -->
 
+			<div class="tab-pane" id="cart">
+				<div role="form">
+					<div class="form-horizontal row">
+						<div class="col-sm-12">
+
+							<!-- Add Gift Message -->
+					  	<div class="form-group js-form-group row hero-layouts marg-top">
+				  			<h3 class="col-sm-10 col-sm-offset-2">Recipient Page</h3>
+							 	<label class="col-sm-2 control-label">Add Gift Message</label>
+							 	<div class="col-sm-10">
+						 		 	<label class="radio-inline js-update-ui">
+						 				<input type="radio" name="cart-gift-message-toggle" data-output="add_gift_message_ckeckbox" value="yes"  data-req-name="gift-message-show" checked="checked"> Show
+						 		 	</label>
+						 		 	<label class="radio-inline js-update-ui">
+						 				<input type="radio" name="cart-gift-message-toggle" data-output="add_gift_message_ckeckbox" value="no" data-req-name="gift-message-hide"> Hide
+						 		 	</label>
+							 	</div>
+					  	</div>
+
+				  	</div>
+			  	</div>
+
+					<!-- Get Code for Cart Pages -->
+					<div class="row clearfix">
+						<div class="col-sm-8 col-sm-offset-2">
+							<h4 class="text-center">Press 'Get Code' to output your code for the Cart Pages</h4>
+							<textarea id="cat-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
+							<div class="row">
+								<div class="col-sm-6 col-sm-offset-3">
+									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block" data-output-template="mobile-layout-settings-template">Get Code</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div> <!-- #cart -->
+
 			<div class="tab-pane" id="redirects">
 				<div role="form">
 					<div class="form-horizontal row">
@@ -472,47 +510,8 @@
 
 				</div>
 			</div> <!-- #redirects -->
-
-			<div class="tab-pane" id="cart_pages">
-				<div role="form">
-					<div class="form-horizontal row">
-						<div class="col-sm-12">
-
-							<!-- Add Gift Message -->
-					  	<div class="form-group js-form-group row hero-layouts marg-top">
-				  			<h3 class="col-sm-10 col-sm-offset-2">Recipient Page</h3>
-							 	<label class="col-sm-2 control-label">Add Gift Message</label>
-							 	<div class="col-sm-10">
-						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="cart-gift-message-toggle" data-output="add_gift_message_ckeckbox" value="yes"  data-req-name="gift-message-show" checked="checked"> Show
-						 		 	</label>
-						 		 	<label class="radio-inline js-update-ui">
-						 				<input type="radio" name="cart-gift-message-toggle" data-output="add_gift_message_ckeckbox" value="no" data-req-name="gift-message-hide"> Hide
-						 		 	</label>
-							 	</div>
-					  	</div>
-
-				  	</div>
-			  	</div>
-
-					<!-- Get Code for Cart Pages -->
-					<div class="row clearfix">
-						<div class="col-sm-8 col-sm-offset-2">
-							<h4 class="text-center">Press 'Get Code' to output your code for the Cart Pages</h4>
-							<textarea id="cat-output" class="form-control code-output marg-btm" style="height: 150px;"></textarea>
-							<div class="row">
-								<div class="col-sm-6 col-sm-offset-3">
-									<button type="button" class="btn btn-primary btn-lg js-convert-trigger btn-block" data-output-template="mobile-layout-settings-template">Get Code</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div> <!-- #Cart Pages-->
 			
 		</div>
-	  <div class="page-footer" style="height: 60px"></div>
 
 	  <!-- Handlebars templates -->
 	  <script id="mobile-layout-settings-template" type="text/x-handlebars-template">
@@ -526,45 +525,51 @@
 		</script>
 		<script id="hero-tile-template" type="text/x-handlebars-template">
 			<div class="row hero-row">
-				<div class="col-sm-12 text-danger delete-row">
-					<p class="js-delete-row clickable"><span class="glyphicon glyphicon-remove"></span> Row</p>
+				<div class="col-sm-2 text-danger text-right">
+					<span class="glyphicon glyphicon-remove js-delete-row clickable"></span>
 				</div>
-				<div class="js-hero-img-preview col-sm-2">
-					<div class="thumbnail img-empty">
-						<img src="">
+				<div class="col-sm-4 hero marg-btm">
+					<div class="js-hero-preview hero-preview">
+						<div class="thumbnail img-empty hero-img-preview">
+							<img src="">
+							<div class="hero-text-preview">
+			  				<p>Hero Title</p>
+			  			</div>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-4 hero">
 		    	<label>Left Image</label>
 		    	<input data-output="hero-image" type="text" class="form-control js-hero-img-input" placeholder="Link to image">
 		    	<label>Left Title</label>
-		    	<input data-output="hero-title" type="text" class="form-control" placeholder="Product title">
+		    	<input data-output="hero-title" type="text" class="form-control js-hero-text-input" placeholder="Product title">
 		    	<label>Left Link</label>
-		    	<input data-output="hero-link"type="text" class="form-control" placeholder="Link to product">
-		  	</div>
-		  	<div class="js-hero-img-preview col-sm-2">
-		  		<div class="thumbnail img-empty">
-		  			<img src="">
-		  		</div>
+		    	<input data-output="hero-link" type="text" class="form-control marg-btm" placeholder="Link to product">
 		  	</div>
 		  	<div class="col-sm-4 hero">
+		  		<div class="js-hero-preview hero-preview">
+		  			<div class="thumbnail img-empty hero-img-preview">
+		  				<img src="">
+		  				<div class="hero-text-preview">
+		  					<p>Hero Title</p>
+		  				</div>
+		  			</div>
+		  		</div>
 		    	<label>Right Image</label>
 		    	<input data-output="hero-image" type="text" class="form-control js-hero-img-input" placeholder="Link to image">
 		    	<label>Right Title</label>
-		    	<input data-output="hero-title" type="text" class="form-control" placeholder="Product title">
+		    	<input data-output="hero-title" type="text" class="form-control js-hero-text-input" placeholder="Product title">
 		    	<label>Right Link</label>
-		    	<input type="text" data-output="hero-link"class="form-control" placeholder="Link to product">
+		    	<input type="text" data-output="hero-link" class="form-control" placeholder="Link to product">
 		  	</div>
 	  	</div>
 		</script>
 		<script id="hero-single-template" type="text/x-handlebars-template">
 			<div class="row">
-				<div class="js-hero-img-preview col-sm-2">
-					<div class="thumbnail img-empty">
-						<img src="">
+				<div class="hero col-sm-8 col-sm-offset-2">
+					<div class="js-hero-preview hero-preview">
+						<div class="thumbnail img-empty hero-img-preview">
+							<img src="">
+						</div>
 					</div>
-				</div>
-				<div class="hero col-sm-8">
 		    	<label>Image</label>
 		    	<input data-output="hero-image" type="text" class="form-control js-hero-img-input" placeholder="Link to image">
 		    	<label>Link</label>
